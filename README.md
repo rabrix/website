@@ -1,36 +1,158 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Rabrix Landing Page
+
+A high-converting, SEO-optimized landing page for Rabrix - Automated Lead Qualification for Realtors.
+
+## Tech Stack
+
+- **Next.js 16** with App Router
+- **TypeScript** for type safety
+- **Tailwind CSS v4** for styling
+- **Framer Motion** for smooth animations
+- **next-seo** for SEO optimization
+
+## Features
+
+- ✅ Premium Apple-like minimalist design
+- ✅ Fully responsive (mobile, tablet, desktop)
+- ✅ Comprehensive SEO (metadata, structured data, sitemap, robots.txt)
+- ✅ Optimized for AI tools (ChatGPT, Gemini, Claude)
+- ✅ Fast performance with Core Web Vitals optimization
+- ✅ Smooth animations and transitions
+- ✅ Accessible and semantic HTML
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Node.js 18+ and npm
+
+### Installation
+
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Set up environment variables:
+   ```bash
+   cp .env.example .env.local
+   ```
+   
+   Update `.env.local` with your values:
+   ```
+   NEXT_PUBLIC_SITE_URL=https://rabrix.com
+   NEXT_PUBLIC_CALENDLY_URL=https://calendly.com/your-calendly-link
+   ```
+
+4. Add logo files:
+   - Place your logo files in `/public/logos/`
+   - Name them:
+     - `rabrix-logo-black.png` (for light backgrounds)
+     - `rabrix-logo-white.png` (for dark backgrounds, if needed)
+   - Recommended size: 48x48px to 96x96px
+
+5. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+6. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+## Project Structure
+
+```
+├── app/
+│   ├── layout.tsx          # Root layout with SEO metadata
+│   ├── page.tsx            # Main landing page
+│   ├── robots.ts           # Robots.txt generation
+│   ├── sitemap.ts          # Sitemap generation
+│   └── globals.css         # Global styles with Tailwind
+├── components/
+│   ├── layout/
+│   │   ├── Header.tsx      # Site header with logo
+│   │   └── Footer.tsx      # Site footer
+│   ├── sections/
+│   │   ├── Hero.tsx        # Hero section with main CTA
+│   │   ├── WithoutRabrix.tsx  # Pain points section
+│   │   ├── WithRabrix.tsx  # 3-step solution
+│   │   ├── Outcomes.tsx    # Benefits section
+│   │   ├── Pricing.tsx     # Pricing section
+│   │   ├── WhoIsThisFor.tsx # Target audience
+│   │   ├── FAQ.tsx         # FAQ with accordion
+│   │   └── FinalCTA.tsx    # Final call-to-action
+│   └── ui/
+│       ├── Button.tsx      # Reusable button component
+│       ├── Card.tsx        # Card component
+│       └── Container.tsx   # Max-width container
+├── lib/
+│   ├── seo.ts              # SEO metadata and structured data
+│   └── faq-schema.ts       # FAQ structured data
+└── public/
+    └── logos/              # Logo files go here
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## SEO Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Comprehensive metadata (title, description, Open Graph, Twitter Cards)
+- Structured data (JSON-LD) for:
+  - Organization
+  - Service
+  - FAQPage
+- Dynamic sitemap generation
+- Optimized robots.txt
+- Semantic HTML structure
+- Optimized for AI tool indexing
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Customization
 
-## Learn More
+### Colors
 
-To learn more about Next.js, take a look at the following resources:
+Colors are defined in `app/globals.css` using CSS custom properties:
+- Black: `#000000`
+- White: `#FFFFFF`
+- Grays: `#1F2937`, `#374151`, `#6B7280`
+- Blue Accent: `#2563EB` (for CTAs)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Content
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Update content in the respective section components:
+- `components/sections/Hero.tsx` - Hero headline and subheadline
+- `components/sections/WithRabrix.tsx` - 3-step solution details
+- `components/sections/FAQ.tsx` - FAQ questions and answers
+- And other section components as needed
 
-## Deploy on Vercel
+### Calendly Integration
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Update the Calendly URL in `.env.local`:
+```
+NEXT_PUBLIC_CALENDLY_URL=https://calendly.com/your-link
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The URL is used in all CTA buttons throughout the site.
+
+## Build for Production
+
+```bash
+npm run build
+npm start
+```
+
+## Performance Optimization
+
+- Image optimization with Next.js Image component
+- Code splitting and lazy loading
+- CSS optimization with Tailwind
+- Static page generation where possible
+- Compressed assets
+
+## Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## License
+
+Private - Rabrix
