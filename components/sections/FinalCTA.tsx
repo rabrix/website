@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
 import { motion } from 'framer-motion';
 
@@ -9,111 +8,87 @@ export const FinalCTA: React.FC = () => {
   const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL || '#';
   
   return (
-    <section className="bg-[#0071e3] text-white py-20 md:py-28">
-      <Container size="narrow">
+    <section className="bg-white py-16 md:py-24">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          {/* Trust Reminder */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-base md:text-lg mb-4 text-white/90 font-semibold uppercase tracking-wide"
-          >
-            Not a scam. Not an agency. The solution.
-          </motion.p>
-
-          {/* Pain Point Reminder */}
+          {/* Heading */}
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 tracking-tight"
+            transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+            className="text-2xl md:text-3xl font-semibold tracking-tight text-[#1d1d1f] mb-4"
           >
-            Tired of <span className="text-white">wasting time</span> on unqualified leads?
+            Ready to stop wasting <span className="gradient-premium">good leads</span>?
           </motion.h2>
           
-          {/* Risk Reversal */}
+          {/* Subtext */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-xl md:text-2xl mb-6 text-white font-semibold"
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+            className="mt-3 text-sm md:text-base text-[#424245] mb-8 max-w-2xl mx-auto"
           >
-            We take all the risk. You just close deals.
+            Rabrix chases, nurtures, and qualifies your leads. You show up ready to close.
           </motion.p>
 
-          {/* Value Recap */}
+          {/* Recap Bullets */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-            className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 mb-8 max-w-2xl mx-auto border border-white/20"
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+            className="rounded-2xl border border-gray-200/60 bg-white/80 backdrop-blur-xl p-6 md:p-8 mb-8 max-w-2xl mx-auto shadow-sm"
           >
-            <p className="text-lg md:text-xl text-white mb-4 font-semibold">What You Get:</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-left">
-              <div className="flex items-start gap-2">
-                <span className="text-white text-lg font-bold mt-0.5">✓</span>
-                <span className="text-white/90 font-normal">100% lead reach-out - zero delay</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="text-white text-lg font-bold mt-0.5">✓</span>
-                <span className="text-white/90 font-normal">Pre-qualified buyers with all details</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="text-white text-lg font-bold mt-0.5">✓</span>
-                <span className="text-white/90 font-normal">Custom CRM - see everything before meeting</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="text-white text-lg font-bold mt-0.5">✓</span>
-                <span className="text-white/90 font-normal">We do all the work - you just close</span>
-              </div>
-            </div>
+            <ul className="space-y-3 text-left">
+              <li className="flex items-start gap-2">
+                <span className="mt-[2px] text-xs text-[#FC466B]">✓</span>
+                <span className="text-sm md:text-base text-[#424245]">Done-for-you online lead generation and follow-up.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-[2px] text-xs text-[#FC466B]">✓</span>
+                <span className="text-sm md:text-base text-[#424245]">Qualified buyers with real intent, not just email addresses.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-[2px] text-xs text-[#FC466B]">✓</span>
+                <span className="text-sm md:text-base text-[#424245]">Appointments booked directly on your calendar.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-[2px] text-xs text-[#FC466B]">✓</span>
+                <span className="text-sm md:text-base text-[#424245]">You only pay when we deliver buyer appointments.</span>
+              </li>
+            </ul>
           </motion.div>
-
-          {/* Urgency & FOMO */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-lg md:text-xl mb-8 text-white font-semibold"
-          >
-            ⚡ Limited spots available - Book now before they're gone
-          </motion.p>
 
           {/* CTA Button */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+            transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
           >
             <Button
               href={calendlyUrl}
-              variant="secondary"
-              size="lg"
-              className="bg-white text-[#0071e3] hover:bg-[#f5f5f7] border-white font-semibold text-lg px-10 py-4 shadow-2xl hover:shadow-3xl transition-all"
+              variant="primary"
+              size="md"
             >
-              Book Now - Limited Spots Available
+              Book a 15-min discovery call
             </Button>
           </motion.div>
 
-          {/* Final Trust Statement */}
+          {/* Optional line */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-sm md:text-base mt-8 text-white/80 font-normal"
+            transition={{ duration: 0.6, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+            className="text-xs md:text-sm mt-6 text-[#86868b] max-w-2xl mx-auto"
           >
-            Remember: We only win when you close deals. We take all the risk.
+            On the call, we'll walk you through how Rabrix would work in your market and go over exact numbers.
           </motion.p>
         </div>
-      </Container>
+      </div>
     </section>
   );
 };

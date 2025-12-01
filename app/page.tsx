@@ -1,7 +1,6 @@
 import { Hero } from "@/components/sections/Hero";
 import { WithoutRabrix } from "@/components/sections/WithoutRabrix";
 import { WithRabrix } from "@/components/sections/WithRabrix";
-import { ValueProposition } from "@/components/sections/ValueProposition";
 import { Outcomes } from "@/components/sections/Outcomes";
 import { Pricing } from "@/components/sections/Pricing";
 import { WhoIsThisFor } from "@/components/sections/WhoIsThisFor";
@@ -14,7 +13,6 @@ export default function Home() {
       <Hero />
       <WithoutRabrix />
       <WithRabrix />
-      <ValueProposition />
       <Outcomes />
       <Pricing />
       <WhoIsThisFor />

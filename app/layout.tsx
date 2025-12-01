@@ -38,7 +38,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       </head>
-      <body className="antialiased bg-white text-black">
+      <body className="antialiased bg-white text-[#1d1d1f]">
         <Header />
         <main>{children}</main>
         <Footer />
