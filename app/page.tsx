@@ -1,9 +1,9 @@
 import { Hero } from "@/components/sections/Hero";
 import { WithoutRabrix } from "@/components/sections/WithoutRabrix";
+import { Realization } from "@/components/sections/Realization";
 import { WithRabrix } from "@/components/sections/WithRabrix";
-import { Outcomes } from "@/components/sections/Outcomes";
+import { Offer } from "@/components/sections/Offer";
 import { Pricing } from "@/components/sections/Pricing";
-import { WhoIsThisFor } from "@/components/sections/WhoIsThisFor";
 import { FAQ } from "@/components/sections/FAQ";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 
@@ -12,11 +12,10 @@ export default function Home() {
     <>
       <Hero />
       <WithoutRabrix />
+      <Realization />
       <WithRabrix />
-      <Outcomes />
-      <Pricing />
-      <WhoIsThisFor />
       <FAQ />
+      <Offer />
       <FinalCTA />
     </>
   );

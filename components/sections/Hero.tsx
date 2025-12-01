@@ -3,186 +3,166 @@
 import React from 'react';
 import { Button } from '@/components/ui/Button';
 import { motion } from 'framer-motion';
-import { Download, Zap, CalendarCheck, ArrowRight } from 'lucide-react';
+import { ArrowDown, XCircle, Clock } from 'lucide-react';
 
 export const Hero: React.FC = () => {
   const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL || '#';
   
   return (
-    <section className="relative bg-white pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden">
-      {/* Subtle static background gradient - no weird animation */}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gradient-to-br from-[#FC466B]/8 to-transparent rounded-full blur-3xl" />
-        <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-gradient-to-br from-[#667EEA]/8 to-transparent rounded-full blur-3xl" />
+    <section className="relative bg-gradient-to-b from-white via-white to-gray-50/30 pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden">
+      {/* Enhanced background gradients with more depth */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-gradient-to-br from-[#FC466B]/10 via-[#FC466B]/5 to-transparent rounded-full blur-3xl" />
+        <div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-gradient-to-br from-[#667EEA]/10 via-[#667EEA]/5 to-transparent rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-t from-[#667EEA]/5 to-transparent rounded-full blur-3xl" />
       </div>
       
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center">
-          {/* Pain Hook - Immediate attention grabber */}
-          {/* <motion.div
+          {/* Pain Point Hook - More Visual Impact */}
+          <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] }}
-            className="mb-6"
+            className="mb-10"
           >
-            <p className="text-sm md:text-base font-semibold text-[#FC466B] tracking-wide">
-              Your calendar is empty. Your phone is silent. Your leads are going cold.
-            </p>
-          </motion.div> */}
+            <div className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[#FC466B]/10 via-[#FC466B]/5 to-[#FC466B]/10 border-2 border-[#FC466B]/30 px-6 py-3 shadow-lg backdrop-blur-sm">
+              <XCircle className="w-5 h-5 text-[#FC466B] flex-shrink-0" />
+              <p className="text-base md:text-lg font-bold text-[#FC466B]">
+                Spending $500–$5,000/month on leads... <span className="text-[#FC466B]/80">still getting empty calendars</span>
+              </p>
+            </div>
+          </motion.div>
 
-          {/* Main Headline - Strikethrough effect */}
+          {/* Main Headline - Better Visual Treatment */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.43, 0.13, 0.23, 0.96] }}
-            className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8 leading-[1.1] text-[#1d1d1f] flex flex-wrap items-center justify-center gap-3 md:gap-6"
+            className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-[-0.02em] mb-10 leading-[1.05] text-[#1d1d1f] max-w-5xl mx-auto"
           >
-            <span>Start</span>
+            Your leads aren't the problem.
+            <br />
             <span className="relative inline-block">
-              <span>chasing</span>
+              <span className="gradient-premium">Your follow-up is.</span>
               <motion.span
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
-                transition={{ duration: 0.6, delay: 0.8 }}
-                className="absolute left-0 top-1/2 w-full h-1 bg-gradient-to-r from-[#FC466B] to-[#3F5EFB] origin-left"
-                style={{ transform: 'translateY(-50%)' }}
+                transition={{ duration: 0.8, delay: 1 }}
+                className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-[#FC466B] to-[#3F5EFB] rounded-full"
               />
             </span>
-            <span className="gradient-premium">closing deals</span>
           </motion.h1>
 
-          {/* Subheadline - Bolder and more engaging */}
-          <motion.p
+          {/* Visual Separator */}
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="w-24 h-1 bg-gradient-to-r from-transparent via-[#667EEA]/40 to-transparent mx-auto mb-10 rounded-full"
+          />
+
+          {/* The Pain Scenario - More Visual */}
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.43, 0.13, 0.23, 0.96] }}
-            className="text-2xl md:text-3xl font-bold text-[#1d1d1f] mb-8 max-w-3xl mx-auto leading-tight"
+            className="mb-10 max-w-3xl mx-auto"
           >
-            Online leads → <span className="gradient-premium">Qualified buyer</span> → <span>On your calendar</span>
-            <br />
-            <span className="text-lg md:text-xl font-semibold text-[#424245] mt-2 block">
-              100% reach-out. Zero work from you.
-            </span>
-          </motion.p>
-
-          {/* Clean Flow Cards with Icons */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.4, ease: [0.43, 0.13, 0.23, 0.96] }}
-            className="my-12"
-          >
-            <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8">
-              {/* Step 1 */}
-              <motion.div
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-                className="relative group"
-              >
-                <div className="rounded-2xl bg-white border-2 border-gray-200/60 p-6 shadow-sm hover:shadow-lg transition-all w-[200px]">
-                  <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-[#FC466B]/10 to-[#3F5EFB]/10 mb-4 mx-auto">
-                    <Download className="w-6 h-6 text-[#FC466B]" />
-                  </div>
-                  <div className="text-base font-bold text-[#1d1d1f] mb-1">Leads Come In</div>
-                  <div className="text-xs text-[#86868b]">24/7 from ads</div>
+            <div className="rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/60 p-6 md:p-8 shadow-lg">
+              <div className="flex items-start gap-4 mb-4">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#FC466B]/10 flex items-center justify-center">
+                  <Clock className="w-5 h-5 text-[#FC466B]" />
                 </div>
-              </motion.div>
-
-              {/* Arrow 1 */}
-              <motion.div
-                initial={{ x: -20, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.8 }}
-                className="hidden md:block"
-              >
-                <ArrowRight className="w-6 h-6 text-[#86868b]" />
-              </motion.div>
-
-              {/* Step 2 - Rabrix Engine */}
-              <motion.div
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.9 }}
-                className="relative group"
-              >
-                <div className="rounded-2xl bg-white border-2 border-[#667EEA]/30 p-6 shadow-sm hover:shadow-lg transition-all w-[200px] bg-gradient-to-br from-[#667EEA]/5 to-white">
-                  <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-[#667EEA] to-[#764BA2] mb-4 mx-auto">
-                    <Zap className="w-6 h-6 text-white" />
-                  </div>
-                  <div className="text-base font-bold text-[#1d1d1f] mb-1">
-                    <span className="gradient-premium-alt">Rabrix</span> Qualifies
-                  </div>
-                  <div className="text-xs text-[#86868b]">100% reach-out, instant</div>
+                <div className="text-left">
+                  <p className="text-lg md:text-xl lg:text-2xl text-[#424245] leading-relaxed">
+                    You're at a showing when <span className="font-semibold text-[#1d1d1f]">5 leads come in</span>. By the time you call them, they've already talked to <span className="font-semibold text-[#FC466B]">3 other agents</span>.
+                  </p>
+                  <p className="text-base md:text-lg text-[#86868b] mt-2 italic">
+                    You're chasing ghosts.
+                  </p>
                 </div>
-              </motion.div>
-
-              {/* Arrow 2 */}
-              <motion.div
-                initial={{ x: -20, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.5, delay: 1.1 }}
-                className="hidden md:block"
-              >
-                <ArrowRight className="w-6 h-6 text-[#86868b]" />
-              </motion.div>
-
-              {/* Step 3 - Booked */}
-              <motion.div
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.5, delay: 1.2 }}
-                className="relative group"
-              >
-                <div className="rounded-2xl bg-white border-2 border-gray-200/60 p-6 shadow-sm hover:shadow-lg transition-all w-[200px]">
-                  <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-[#F093FB]/10 to-[#764BA2]/10 mb-4 mx-auto">
-                    <CalendarCheck className="w-6 h-6 text-[#764BA2]" />
-                  </div>
-                  <div className="text-base font-bold text-[#1d1d1f] mb-1">Appointment Booked</div>
-                  <div className="text-xs text-[#86868b]">On your calendar</div>
-                </div>
-              </motion.div>
+              </div>
             </div>
           </motion.div>
 
-          {/* Value Prop - Quick */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-base md:text-lg text-[#86868b] mb-8 max-w-2xl mx-auto"
-          >
-           We only earn when we put <span className="gradient-premium font-semibold">buyer appointments</span> on your calendar.
-          </motion.p>
-
-          {/* CTAs - Prominent */}
+          {/* The Solution - Clean and Direct */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6, ease: [0.43, 0.13, 0.23, 0.96] }}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.43, 0.13, 0.23, 0.96] }}
+            className="mb-10 max-w-3xl mx-auto"
+          >
+            <p className="text-xl md:text-2xl lg:text-3xl text-[#1d1d1f] font-bold mb-4">
+              We respond in minutes. We follow up 7–9 times. We qualify them.
+            </p>
+            <p className="text-2xl md:text-3xl lg:text-4xl text-[#1d1d1f] font-bold">
+              <span className="gradient-premium">You just show up and close.</span>
+            </p>
+          </motion.div>
+
+          {/* $0 Upfront Hook - Cleaner, Less Overwhelming */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: [0.43, 0.13, 0.23, 0.96] }}
+            className="mb-10 max-w-2xl mx-auto"
+          >
+            <div className="rounded-2xl bg-white/90 backdrop-blur-sm border-2 border-[#667EEA]/20 p-6 md:p-8 shadow-lg hover:shadow-xl transition-shadow">
+              <div className="text-center">
+                <p className="text-2xl md:text-3xl font-bold text-[#1d1d1f] mb-3">
+                  $0 upfront. <span className="gradient-premium-alt">We take the risk.</span>
+                </p>
+                <p className="text-base md:text-lg text-[#424245] leading-relaxed mb-4">
+                  You cover ad spend (you're already doing that). We handle follow-up, qualification, and booking.
+                </p>
+                <p className="text-sm md:text-base font-semibold text-[#1d1d1f] mb-4">
+                  We only get paid when buyer appointments show up on your calendar.
+                </p>
+                <div className="pt-4 border-t border-gray-200/60">
+                  <p className="text-sm text-[#86868b]">
+                    No retainers. No monthly fees for "management." Just appointments.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* CTAs - Better Spacing */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5, ease: [0.43, 0.13, 0.23, 0.96] }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.03, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ duration: 0.2 }}
             >
               <Button
                 href={calendlyUrl}
                 variant="primary"
                 size="lg"
-                className="text-lg px-8 py-4 shadow-lg hover:shadow-xl transition-all"
+                className="text-lg px-10 py-5 shadow-[0_8px_24px_-8px_rgba(252,70,107,0.4)] hover:shadow-[0_12px_32px_-8px_rgba(252,70,107,0.5)] transition-all"
               >
                 Book a 15-min discovery call
               </Button>
             </motion.div>
-            <Button
-              href="#solution"
-              variant="text"
-              size="lg"
-              className="text-base"
+            <motion.div
+              whileHover={{ y: -2 }}
+              transition={{ duration: 0.2 }}
             >
-              See how it works →
-            </Button>
+              <Button
+                href="#without-rabrix"
+                variant="text"
+                size="lg"
+                className="text-base group"
+              >
+                See your day without Rabrix
+                <ArrowDown className="inline-block ml-2 w-4 h-4 group-hover:translate-y-1 transition-transform" />
+              </Button>
+            </motion.div>
           </motion.div>
         </div>
       </div>

@@ -1,92 +1,46 @@
 'use client';
 
 import React from 'react';
-import { Button } from '@/components/ui/Button';
 import { motion } from 'framer-motion';
+import { FacebookBanner } from '@/components/ui/FacebookBanner';
 
 export const FinalCTA: React.FC = () => {
-  const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL || '#';
   
   return (
-    <section className="bg-white py-16 md:py-24">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative bg-gradient-to-b from-white via-gray-50/30 to-white py-24 md:py-32">
+      {/* Subtle divider */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+      
+      {/* Background accent */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-gradient-to-t from-[#667EEA]/5 to-transparent rounded-full blur-3xl" />
+      </div>
+      
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center">
-          {/* Heading */}
-          <motion.h2
+          {/* Simplified - Just Facebook Hook */}
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-2xl md:text-3xl font-semibold tracking-tight text-[#1d1d1f] mb-4"
+            className="mb-8"
           >
-            Ready to stop wasting <span className="gradient-premium">good leads</span>?
-          </motion.h2>
-          
-          {/* Subtext */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-            className="mt-3 text-sm md:text-base text-[#424245] mb-8 max-w-2xl mx-auto"
-          >
-            Rabrix chases, nurtures, and qualifies your leads. You show up ready to close.
-          </motion.p>
-
-          {/* Recap Bullets */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-            className="rounded-2xl border border-gray-200/60 bg-white/80 backdrop-blur-xl p-6 md:p-8 mb-8 max-w-2xl mx-auto shadow-sm"
-          >
-            <ul className="space-y-3 text-left">
-              <li className="flex items-start gap-2">
-                <span className="mt-[2px] text-xs text-[#FC466B]">✓</span>
-                <span className="text-sm md:text-base text-[#424245]">Done-for-you online lead generation and follow-up.</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="mt-[2px] text-xs text-[#FC466B]">✓</span>
-                <span className="text-sm md:text-base text-[#424245]">Qualified buyers with real intent, not just email addresses.</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="mt-[2px] text-xs text-[#FC466B]">✓</span>
-                <span className="text-sm md:text-base text-[#424245]">Appointments booked directly on your calendar.</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="mt-[2px] text-xs text-[#FC466B]">✓</span>
-                <span className="text-sm md:text-base text-[#424245]">You only pay when we deliver buyer appointments.</span>
-              </li>
-            </ul>
+            <p className="text-lg md:text-xl text-[#424245] mb-6 max-w-2xl mx-auto">
+              Prefer to start more casually?
+            </p>
           </motion.div>
 
-          {/* CTA Button */}
+          {/* Facebook Banner */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+            className="mt-12"
           >
-            <Button
-              href={calendlyUrl}
-              variant="primary"
-              size="md"
-            >
-              Book a 15-min discovery call
-            </Button>
+            <FacebookBanner />
           </motion.div>
-
-          {/* Optional line */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-xs md:text-sm mt-6 text-[#86868b] max-w-2xl mx-auto"
-          >
-            On the call, we'll walk you through how Rabrix would work in your market and go over exact numbers.
-          </motion.p>
         </div>
       </div>
     </section>

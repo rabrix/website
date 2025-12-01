@@ -51,18 +51,18 @@ export const FAQ: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-2xl md:text-3xl font-semibold tracking-tight text-[#1d1d1f] text-center mb-4"
+            className="text-3xl md:text-4xl font-bold tracking-[-0.02em] text-[#1d1d1f] text-center mb-6"
           >
-            Frequently Asked <span className="gradient-premium">Questions</span>
+            Common questions
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-            className="mt-3 text-sm md:text-base text-[#424245] text-center mb-12 max-w-2xl mx-auto"
+            className="text-base md:text-lg text-[#424245] text-center mb-10 max-w-2xl mx-auto"
           >
-            Everything you need to know
+            Before we get started, here's what you need to know.
           </motion.p>
           
           <div className="space-y-0">
