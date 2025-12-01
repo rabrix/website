@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
 import { motion } from 'framer-motion';
 
@@ -9,119 +8,69 @@ export const Pricing: React.FC = () => {
   const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL || '#';
   
   return (
-    <section id="pricing" className="bg-[#f5f5f7] py-20 md:py-28">
-      <Container size="narrow">
+    <section id="pricing" className="bg-white py-16 md:py-24">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 text-[#1d1d1f] tracking-tight"
+            className="text-2xl md:text-3xl font-semibold tracking-tight text-[#1d1d1f] mb-4"
           >
-            Transparent Pricing. <span className="gradient-premium">No Hidden Fees.</span> No Scams.
+            We only win when <span className="gradient-premium">you</span> win
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-lg md:text-xl font-semibold text-[#1d1d1f] mb-2"
+            className="mt-3 text-sm md:text-base text-[#424245] mb-12 max-w-2xl mx-auto"
           >
-            You pay per booked appointment. We take the risk.
+            You're not paying for 'activity'. You're paying for buyer appointments.
           </motion.p>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-base md:text-lg text-[#86868b] mb-12 font-normal"
-          >
-            Agencies charge upfront. We charge on results.
-          </motion.p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-              className="bg-white rounded-2xl p-8 border border-gray-200/50 shadow-sm"
-            >
-              <h3 className="text-2xl font-semibold mb-2 text-[#1d1d1f]">Software</h3>
-              <p className="text-3xl font-semibold mb-4 gradient-accent">$200-400<span className="text-lg text-[#86868b] font-normal">/month</span></p>
-              <p className="text-base text-[#86868b] leading-relaxed">
-                Includes full CRM, appointment tracking, chat summaries, and intent extraction.
-              </p>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-              className="bg-white rounded-2xl p-8 border border-gray-200/50 shadow-sm"
-            >
-              <h3 className="text-2xl font-semibold mb-2 text-[#1d1d1f]">Per Appointment</h3>
-              <p className="text-3xl font-semibold mb-4 gradient-accent">$200<span className="text-lg text-[#86868b] font-normal">/booking</span></p>
-              <p className="text-base text-[#86868b] leading-relaxed">
-                Only charged when an appointment is successfully booked on your calendar.
-              </p>
-            </motion.div>
-          </div>
           
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-            className="bg-white rounded-2xl p-8 md:p-10 border border-gray-200/50 shadow-sm"
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+            className="rounded-3xl border border-gray-200/60 bg-white/80 backdrop-blur-2xl p-6 md:p-8 space-y-6 max-w-3xl mx-auto shadow-lg"
           >
-            <h3 className="text-xl md:text-2xl font-semibold text-[#1d1d1f] mb-2 tracking-tight">What You Get (We Do All The Work)</h3>
-            <p className="text-base text-[#86868b] mb-6 font-normal">Everything included. Zero extra costs. Just close deals.</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left mb-8">
-              <div className="flex items-start gap-3">
-                <span className="text-[#0071e3] text-lg font-semibold mt-0.5">✓</span>
-                <span className="text-base text-[#1d1d1f] font-normal">WhatsApp automated messaging</span>
+            <div className="space-y-2 text-left">
+              <div className="flex items-start gap-2">
+                <span className="mt-[2px] text-xs text-[#FC466B]">✓</span>
+                <span className="text-sm md:text-base text-[#424245]">You cover your ad spend directly to the platform.</span>
               </div>
-              <div className="flex items-start gap-3">
-                <span className="text-[#0071e3] text-lg font-semibold mt-0.5">✓</span>
-                <span className="text-base text-[#1d1d1f] font-normal">AI caller (human-like tone)</span>
+              <div className="flex items-start gap-2">
+                <span className="mt-[2px] text-xs text-[#FC466B]">✓</span>
+                <span className="text-sm md:text-base text-[#424245]">You pay a simple monthly platform fee for Rabrix.</span>
               </div>
-              <div className="flex items-start gap-3">
-                <span className="text-[#0071e3] text-lg font-semibold mt-0.5">✓</span>
-                <span className="text-base text-[#1d1d1f] font-normal">Calendar integration</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="text-[#0071e3] text-lg font-semibold mt-0.5">✓</span>
-                <span className="text-base text-[#1d1d1f] font-normal">Rich buyer summaries</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="text-[#0071e3] text-lg font-semibold mt-0.5">✓</span>
-                <span className="text-base text-[#1d1d1f] font-normal">7-9 automated follow-ups</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="text-[#0071e3] text-lg font-semibold mt-0.5">✓</span>
-                <span className="text-base text-[#1d1d1f] font-normal">Full CRM & tracking</span>
+              <div className="flex items-start gap-2">
+                <span className="mt-[2px] text-xs text-[#FC466B]">✓</span>
+                <span className="text-sm md:text-base text-[#424245]">You pay us a straightforward per-appointment fee when we put buyer appointments on your calendar.</span>
               </div>
             </div>
             
-            <div className="bg-[#f5f5f7] rounded-xl p-6 mb-6">
-              <p className="text-sm text-[#86868b] mb-2"><strong className="text-[#1d1d1f]">Premium Plan ($400/month):</strong> Includes campaign launch feature - upload lead lists for reactivation via WhatsApp + AI caller.</p>
-              <p className="text-sm text-[#86868b]"><strong className="text-[#1d1d1f]">Note:</strong> $30/day minimum Facebook ad budget required (paid by client).</p>
+            <div className="rounded-xl border border-gray-200/60 bg-white/60 backdrop-blur-sm p-4 md:p-6">
+              <p className="text-sm md:text-base text-[#86868b]">
+                No retainers. No hidden management fees. We'll walk you through exact numbers on the call.
+              </p>
             </div>
             
-            <Button
-              href={calendlyUrl}
-              variant="primary"
-              size="lg"
-              className="w-full sm:w-auto font-semibold"
-            >
-              Get Started - We Take The Risk
-            </Button>
+            <div className="pt-4">
+              <Button
+                href={calendlyUrl}
+                variant="primary"
+                size="md"
+                className="w-full sm:w-auto"
+              >
+                Book a 15-min discovery call
+              </Button>
+            </div>
           </motion.div>
         </div>
-      </Container>
+      </div>
     </section>
   );
 };
