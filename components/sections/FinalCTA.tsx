@@ -18,26 +18,12 @@ export const FinalCTA: React.FC = () => {
       
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center">
-          {/* Simplified - Just Facebook Hook */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-            className="mb-8"
-          >
-            <p className="text-lg md:text-xl text-[#424245] mb-6 max-w-2xl mx-auto">
-              Prefer to start more casually?
-            </p>
-          </motion.div>
-
           {/* Facebook Banner */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-            className="mt-12"
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
           >
             <FacebookBanner />
           </motion.div>
