@@ -1,181 +1,139 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, useScroll } from 'framer-motion';
-import { CharacterAvatar } from '@/components/ui/CharacterAvatar';
+import React, { useRef } from 'react';
+import { motion } from 'framer-motion';
 
 const moments = [
   {
     time: "6:30 AM",
-    text: "Alarm goes off. You check your phone. 3 new leads from last night. You save them for 'later' - you're already late for your first showing.",
+    title: "Alarm goes off. You're already behind.",
+    text: "You check your phone. 3 new leads from last night. You save them for 'later' - you're already late for your first showing.",
     position: 'left' as const
   },
   {
     time: "11:00 AM",
-    text: "Between showings, you try to call those leads. Two go straight to voicemail. One picks up: 'Just looking around.' You hang up. Another waste of time.",
+    title: "Between showings, you try to call those leads.",
+    text: "Two go straight to voicemail. One picks up: 'Just looking around.' You hang up. Another waste of time.",
     position: 'right' as const
   },
   {
     time: "3:00 PM",
-    text: "Driving to another showing. 5 more leads come in. You screenshot them. Tell yourself you'll handle it tonight. You know you won't.",
+    title: "Driving to another showing. 5 more leads come in.",
+    text: "You screenshot them. Tell yourself you'll handle it tonight. You know you won't.",
     position: 'left' as const
   },
   {
     time: "8:30 PM",
-    text: "Finally home. You're drained. You call 2 leads. No answer. You text 3. One replies: 'Not interested anymore.' The others? Radio silence.",
+    title: "Finally home. You're drained.",
+    text: "You call 2 leads. No answer. You text 3. One replies: 'Not interested anymore.' The others? Radio silence.",
     position: 'right' as const
   },
   {
     time: "10:00 PM",
-    text: "You close your laptop. Tomorrow's calendar? One listing appointment. Zero buyer meetings. You worked 14 hours today. For what?",
+    title: "You close your laptop. Tomorrow's calendar?",
+    text: "One listing appointment. Zero buyer meetings. You worked 14 hours today. For what?",
     position: 'left' as const
   }
 ];
 
 export const WithoutRabrix: React.FC = () => {
-  const [currentExpression, setCurrentExpression] = useState<'tired'>('tired');
-  const containerRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start center", "end center"]
-  });
-
-  useEffect(() => {
-    const unsubscribe = scrollYProgress.on('change', () => {
-      setCurrentExpression('tired');
-    });
-    return () => unsubscribe();
-  }, [scrollYProgress]);
 
   return (
     <section id="without-rabrix" className="relative bg-gradient-to-b from-white via-gray-50/30 to-gray-50/50 py-20 md:py-32 overflow-hidden">
       {/* Background texture */}
       <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-          className="text-center mb-20"
+          className="text-center mb-14 md:mb-20"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-[-0.02em] text-[#1d1d1f] mb-6">
+          <div className="text-xs uppercase tracking-[0.2em] text-[#86868b] mb-3">See your day</div>
+          <h2 className="text-3xl md:text-4xl font-semibold tracking-[-0.02em] text-[#1d1d1f] mb-2">
             This is what <span className="gradient-premium">your day looks like</span>
           </h2>
-          <p className="text-xl md:text-2xl text-[#424245] max-w-3xl mx-auto leading-relaxed font-medium">
+          <p className="text-sm md:text-base text-[#424245] max-w-2xl mx-auto leading-relaxed">
             Every single day. You're working. You're trying. Your calendar stays empty.
           </p>
         </motion.div>
 
-        {/* Character at top */}
-        <div className="flex justify-center mb-16">
+        {/* Grid layout: Character + Timeline */}
+        <div className="grid md:grid-cols-[1.1fr,0.9fr] gap-8 md:gap-12 items-start">
+          {/* Left: Character block */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="hidden md:block"
           >
-            <CharacterAvatar expression={currentExpression} />
+            <div className="rounded-3xl border border-gray-200/60 bg-gradient-to-br from-rose-50/80 via-white/90 to-rose-50/60 backdrop-blur-sm p-6 md:p-8 shadow-2xl shadow-black/10">
+              <div className="flex flex-col items-center mb-4">
+                <div className="size-16 rounded-full bg-rose-100/80 flex items-center justify-center text-2xl mb-3">
+                  😓
+                </div>
+                <div className="text-xs uppercase tracking-[0.2em] text-[#86868b] mb-2">Your Reality</div>
+                <div className="text-2xl font-semibold text-[#1d1d1f]">Tired & Overwhelmed</div>
+              </div>
+              <div className="space-y-2 text-sm text-[#424245]">
+                <div className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-rose-500/70" />
+                  <span>14-hour days</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-rose-500/70" />
+                  <span>Empty calendar</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-rose-500/70" />
+                  <span>Chasing ghosts</span>
+                </div>
+              </div>
+            </div>
           </motion.div>
-        </div>
 
-        {/* Curved Flow with iPhone-style Cards */}
-        <div ref={containerRef} className="relative">
-          {/* Single SVG for all connecting lines */}
-          <svg 
-            className="hidden md:block absolute inset-0 w-full h-full pointer-events-none z-0"
-            style={{ overflow: 'visible' }}
-          >
-            {moments.map((moment, index) => {
-              if (index === moments.length - 1) return null;
-              
-              const isLeft = moment.position === 'left';
-              const nextIsRight = moments[index + 1].position === 'right';
-              
-              // Card spacing and positions
-              const cardSpacing = 320;
-              const leftCardCenterX = 200; // Left card center X
-              const rightCardCenterX = 600; // Right card center X
-              
-              // Start point (bottom of current card)
-              const startX = isLeft ? leftCardCenterX : rightCardCenterX;
-              const startY = index * cardSpacing + 180;
-              
-              // End point (top of next card)
-              const endX = nextIsRight ? rightCardCenterX : leftCardCenterX;
-              const endY = (index + 1) * cardSpacing + 60;
-              
-              // Control points for smooth curve
-              const midX = 400; // Center of container
-              const controlX1 = midX;
-              const controlY1 = startY + (endY - startY) * 0.4;
-              const controlX2 = midX;
-              const controlY2 = startY + (endY - startY) * 0.6;
-              
-              return (
-                <motion.path
-                  key={index}
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  whileInView={{ pathLength: 1, opacity: 1 }}
-                  viewport={{ once: true, margin: "-200px" }}
-                  transition={{ duration: 1.2, delay: index * 0.2 + 0.6, ease: "easeInOut" }}
-                  d={`M ${startX} ${startY} C ${controlX1} ${controlY1}, ${controlX2} ${controlY2}, ${endX} ${endY}`}
-                  stroke="#1d1d1f"
-                  strokeWidth="5"
-                  fill="none"
-                  strokeLinecap="round"
-                  className="opacity-70"
-                />
-              );
-            })}
-          </svg>
+          {/* Right: Timeline stack */}
+          <div className="space-y-4">
 
-          {/* iPhone-style Message Cards */}
-          <div className="relative z-10 space-y-20 md:space-y-28">
             {moments.map((moment, index) => {
-              const isLeft = moment.position === 'left';
-              
               return (
                 <motion.div
                   key={index}
                   ref={(el) => { cardRefs.current[index] = el; }}
-                  initial={{ opacity: 0, x: isLeft ? -50 : 50, scale: 0.95 }}
-                  whileInView={{ opacity: 1, x: 0, scale: 1 }}
-                  viewport={{ once: true, margin: "-100px" }}
+                  initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true, margin: "-50px" }}
                   transition={{ 
                     duration: 0.6, 
-                    delay: index * 0.15,
+                    delay: index * 0.1,
                     ease: [0.25, 0.1, 0.25, 1] 
                   }}
-                  className={`flex ${isLeft ? 'justify-start' : 'justify-end'}`}
+                  className="relative pl-4 md:pl-5"
                 >
-                  {/* iPhone Message Bubble - Premium Design */}
-                  <div className={`w-full md:max-w-md ${isLeft ? 'md:mr-auto' : 'md:ml-auto'}`}>
-                    <div className={`
-                      relative rounded-2xl px-5 py-4 md:px-6 md:py-5
-                      ${isLeft 
-                        ? 'bg-white' 
-                        : 'bg-[#E5E5EA]'
-                      }
-                      shadow-[0_4px_12px_rgba(0,0,0,0.08)]
-                    `}
-                    style={{
-                      borderRadius: isLeft ? '18px 18px 18px 4px' : '18px 18px 4px 18px'
-                    }}
-                    >
-                      {/* Timestamp - iPhone style */}
-                      <p className="text-xs font-medium text-[#86868b] mb-3">
-                        {moment.time}
-                      </p>
-                      
-                      {/* Message text - iPhone style */}
-                      <p className="text-sm md:text-base leading-relaxed text-[#1d1d1f]">
-                        {moment.text}
-                      </p>
-                    </div>
+                  {/* Left border accent - negative mood */}
+                  <div className="absolute inset-y-3 left-0 w-1 rounded-full bg-rose-500/70" />
+                  
+                  {/* Timeline Card */}
+                  <div className="rounded-2xl border border-gray-200/60 bg-white/80 backdrop-blur-sm p-4 md:p-5 shadow-lg shadow-black/10">
+                    {/* Time label */}
+                    <p className="text-[11px] uppercase tracking-[0.2em] text-[#86868b] mb-2">
+                      {moment.time}
+                    </p>
+                    
+                    {/* Title line */}
+                    <p className="text-lg font-semibold text-[#1d1d1f] mt-1 mb-2">
+                      {moment.title}
+                    </p>
+                    
+                    {/* Body text */}
+                    <p className="text-sm md:text-base text-[#424245] mt-1 leading-relaxed">
+                      {moment.text}
+                    </p>
                   </div>
                 </motion.div>
               );
@@ -189,7 +147,7 @@ export const WithoutRabrix: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-center mt-20"
+          className="text-center mt-14 md:mt-20"
         >
           <p className="text-xl md:text-2xl font-bold text-[#1d1d1f] mb-2">
             Sound familiar?
