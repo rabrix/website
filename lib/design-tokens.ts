@@ -81,13 +81,13 @@ export function getTypographyClasses(
   includeWeight = true
 ): string {
   const typo = TYPOGRAPHY[variant];
-  const classes = [
+  const classes: string[] = [
     typo.mobile,
     typo.tablet,
-    typo.desktop,
-    typo.large,
+    'desktop' in typo ? (typo as any).desktop : undefined,
+    'large' in typo ? (typo as any).large : undefined,
     typo.lineHeight,
-  ].filter(Boolean);
+  ].filter((cls): cls is string => typeof cls === 'string');
   
   if (includeWeight) {
     classes.push(typo.weight);
