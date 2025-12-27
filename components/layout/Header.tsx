@@ -29,19 +29,19 @@ export const Header: React.FC = () => {
           <div className="hidden md:flex items-center space-x-10">
             <Link 
               href="#solution" 
-              className="text-sm text-[#1d1d1f] hover:text-[#FC466B] transition-colors duration-200 font-normal"
+              className="text-sm text-[#1d1d1f] hover:text-[#06B6D4] transition-colors duration-200 font-normal"
             >
               How It Works
             </Link>
             <Link 
               href="#pricing" 
-              className="text-sm text-[#1d1d1f] hover:text-[#FC466B] transition-colors duration-200 font-normal"
+              className="text-sm text-[#1d1d1f] hover:text-[#06B6D4] transition-colors duration-200 font-normal"
             >
               Pricing
             </Link>
             <Link 
               href="#faq" 
-              className="text-sm text-[#1d1d1f] hover:text-[#FC466B] transition-colors duration-200 font-normal"
+              className="text-sm text-[#1d1d1f] hover:text-[#06B6D4] transition-colors duration-200 font-normal"
             >
               FAQ
             </Link>
@@ -66,21 +66,21 @@ export const Header: React.FC = () => {
           <div className="md:hidden border-t border-gray-200/60 py-4 space-y-4">
             <Link 
               href="#solution" 
-              className="block text-sm text-[#1d1d1f] hover:text-[#007AFF] transition-colors"
+              className="block text-sm text-[#1d1d1f] hover:text-[#06B6D4] transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               How It Works
             </Link>
             <Link 
               href="#pricing" 
-              className="block text-sm text-[#1d1d1f] hover:text-[#007AFF] transition-colors"
+              className="block text-sm text-[#1d1d1f] hover:text-[#06B6D4] transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               Pricing
             </Link>
             <Link 
               href="#faq" 
-              className="block text-sm text-[#1d1d1f] hover:text-[#007AFF] transition-colors"
+              className="block text-sm text-[#1d1d1f] hover:text-[#06B6D4] transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               FAQ

@@ -58,7 +58,7 @@ export const StoryFlow: React.FC<StoryFlowProps> = ({
         {/* Connecting Thread - Center (n8n-style flow) */}
         <div className="hidden lg:block relative order-2 w-1 self-stretch min-h-[600px]">
           {/* Vertical connecting line */}
-          <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-0.5 bg-gradient-to-b from-[#667EEA]/40 via-[#667EEA]/30 to-[#667EEA]/40" />
+          <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-0.5 bg-gradient-to-b from-[#06B6D4]/40 via-[#06B6D4]/30 to-[#06B6D4]/40" />
           
           {/* Connection nodes at each card position */}
           {cards.map((_, index) => {
@@ -77,7 +77,7 @@ export const StoryFlow: React.FC<StoryFlowProps> = ({
                 className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2"
                 style={{ top: `${position}%` }}
               >
-                <div className="w-5 h-5 rounded-full bg-gradient-to-br from-[#667EEA] to-[#764BA2] border-2 border-white shadow-lg ring-2 ring-[#667EEA]/20" />
+                <div className="w-5 h-5 rounded-full bg-[#06B6D4] border-2 border-white shadow-lg ring-2 ring-[#06B6D4]/20" />
               </motion.div>
             );
           })}
@@ -99,13 +99,13 @@ export const StoryFlow: React.FC<StoryFlowProps> = ({
               className="relative"
             >
               {/* Connection line to center thread */}
-              <div className="hidden lg:block absolute -left-12 top-1/2 -translate-y-1/2 w-12 h-0.5 bg-gradient-to-r from-[#667EEA]/40 to-transparent" />
+              <div className="hidden lg:block absolute -left-12 top-1/2 -translate-y-1/2 w-12 h-0.5 bg-gradient-to-r from-[#06B6D4]/40 to-transparent" />
               
               <div
                 className={`
                   relative rounded-3xl px-5 py-4 md:px-6 md:py-5
                   ${card.highlight 
-                    ? 'bg-gradient-to-br from-[#667EEA]/12 via-[#667EEA]/8 to-[#764BA2]/10 border-2 border-[#667EEA]/25 shadow-[0_8px_24px_-8px_rgba(102,126,234,0.25)]' 
+                    ? 'bg-gradient-to-br from-[#06B6D4]/10 via-[#06B6D4]/5 to-[#0891B2]/10 border-2 border-[#06B6D4]/20 shadow-[0_8px_24px_-8px_rgba(6,182,212,0.25)]' 
                     : 'bg-white border border-gray-200/70 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.08)]'
                   }
                   transition-all duration-300 hover:shadow-lg
@@ -122,7 +122,7 @@ export const StoryFlow: React.FC<StoryFlowProps> = ({
                     {card.text}
                   </p>
                   {card.timestamp && (
-                    <p className={`text-xs mt-3 ${card.highlight ? 'text-[#667EEA] font-medium' : 'text-[#86868b]'}`}>
+                    <p className={`text-xs mt-3 ${card.highlight ? 'text-[#06B6D4] font-medium' : 'text-[#86868b]'}`}>
                       {card.timestamp}
                     </p>
                   )}

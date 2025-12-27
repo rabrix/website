@@ -37,7 +37,7 @@ export const SMSBubble: React.FC<SMSBubbleProps> = ({
         className={`
           relative rounded-3xl px-5 py-4 md:px-6 md:py-5
           ${isHighlight 
-            ? 'bg-gradient-to-br from-[#667EEA]/12 via-[#667EEA]/8 to-[#764BA2]/10 border border-[#667EEA]/25 shadow-[0_8px_24px_-8px_rgba(102,126,234,0.25)]' 
+            ? 'bg-gradient-to-br from-[#06B6D4]/10 via-[#06B6D4]/5 to-[#0891B2]/10 border border-[#06B6D4]/20 shadow-[0_8px_24px_-8px_rgba(6,182,212,0.25)]' 
             : 'bg-white border border-gray-200/70 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.08)]'
           }
           transition-all duration-300
@@ -56,7 +56,7 @@ export const SMSBubble: React.FC<SMSBubbleProps> = ({
             {text}
           </p>
           {timestamp && (
-            <p className={`text-xs mt-3 ${isHighlight ? 'text-[#667EEA] font-medium' : 'text-[#86868b]'}`}>
+            <p className={`text-xs mt-3 ${isHighlight ? 'text-[#06B6D4] font-medium' : 'text-[#86868b]'}`}>
               {timestamp}
             </p>
           )}

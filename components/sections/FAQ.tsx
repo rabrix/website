@@ -43,7 +43,10 @@ export const FAQ: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="bg-white py-16 md:py-24">
+    <section id="faq" className="relative bg-white py-16 md:py-20 lg:py-24">
+      {/* Subtle divider */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+      
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           {/* Trust Strip - Who's behind Rabrix */}
@@ -56,7 +59,7 @@ export const FAQ: React.FC = () => {
           >
             <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6 rounded-2xl border border-gray-200/60 bg-white/80 backdrop-blur-sm p-5 md:p-6 shadow-lg shadow-black/10">
               {/* Avatar placeholder */}
-              <div className="size-14 rounded-full bg-gradient-to-br from-[#667EEA] to-[#764BA2] flex items-center justify-center text-white text-xl font-semibold flex-shrink-0">
+              <div className="size-14 rounded-full bg-[#06B6D4] flex items-center justify-center text-white text-xl font-semibold flex-shrink-0">
                 SV
               </div>
               <div className="flex-1">
@@ -67,7 +70,7 @@ export const FAQ: React.FC = () => {
                   href="https://www.facebook.com/shashank.vishwakarma.16121/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm font-semibold text-[#667EEA] hover:text-[#764BA2] transition-colors inline-flex items-center gap-1"
+                  className="text-sm font-semibold text-[#06B6D4] hover:text-[#0891B2] transition-colors inline-flex items-center gap-1"
                 >
                   Connect with me on Facebook
                   <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -83,7 +86,7 @@ export const FAQ: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-3xl md:text-4xl font-bold tracking-[-0.02em] text-[#1d1d1f] text-center mb-6"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.02em] text-[#1d1d1f] text-center mb-6"
           >
             Common questions
           </motion.h2>

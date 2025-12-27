@@ -19,36 +19,36 @@ const expressionStyles: Record<Expression, {
   shadow: string;
 }> = {
   tired: {
-    bg: 'from-[#FC466B]/15 via-[#FC466B]/8 to-[#3F5EFB]/5',
-    borderColor: 'border-[#FC466B]/20',
-    glow: 'from-[#FC466B]/30 to-[#3F5EFB]/20',
+    bg: 'from-[#86868b]/10 via-[#86868b]/5 to-[#86868b]/5',
+    borderColor: 'border-[#86868b]/20',
+    glow: 'from-[#86868b]/30 to-[#86868b]/20',
     emoji: '😓',
     description: 'Tired and stressed',
-    shadow: 'shadow-[0_20px_60px_-15px_rgba(252,70,107,0.3)]'
+    shadow: 'shadow-[0_20px_60px_-15px_rgba(134,134,139,0.3)]'
   },
   neutral: {
-    bg: 'from-[#86868b]/15 via-[#86868b]/8 to-[#86868b]/5',
+    bg: 'from-[#86868b]/10 via-[#86868b]/5 to-[#86868b]/5',
     borderColor: 'border-[#86868b]/20',
-    glow: 'from-[#86868b]/25 to-[#86868b]/15',
+    glow: 'from-[#86868b]/20 to-[#86868b]/10',
     emoji: '😐',
     description: 'Neutral',
     shadow: 'shadow-[0_20px_60px_-15px_rgba(134,134,139,0.2)]'
   },
   calm: {
-    bg: 'from-[#667EEA]/15 via-[#667EEA]/8 to-[#764BA2]/5',
-    borderColor: 'border-[#667EEA]/20',
-    glow: 'from-[#667EEA]/30 to-[#764BA2]/20',
+    bg: 'from-[#06B6D4]/10 via-[#06B6D4]/5 to-[#0891B2]/5',
+    borderColor: 'border-[#06B6D4]/20',
+    glow: 'from-[#06B6D4]/30 to-[#0891B2]/20',
     emoji: '😌',
     description: 'Calm and relaxed',
-    shadow: 'shadow-[0_20px_60px_-15px_rgba(102,126,234,0.3)]'
+    shadow: 'shadow-[0_20px_60px_-15px_rgba(6,182,212,0.3)]'
   },
   confident: {
-    bg: 'from-[#667EEA]/20 via-[#764BA2]/12 to-[#F093FB]/8',
-    borderColor: 'border-[#667EEA]/25',
-    glow: 'from-[#667EEA]/35 to-[#F093FB]/25',
+    bg: 'from-[#06B6D4]/20 via-[#0891B2]/10 to-[#06B6D4]/5',
+    borderColor: 'border-[#06B6D4]/20',
+    glow: 'from-[#06B6D4]/30 to-[#0891B2]/20',
     emoji: '😊',
     description: 'Confident and happy',
-    shadow: 'shadow-[0_20px_60px_-15px_rgba(102,126,234,0.35)]'
+    shadow: 'shadow-[0_20px_60px_-15px_rgba(6,182,212,0.35)]'
   }
 };
 
