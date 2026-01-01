@@ -10,7 +10,7 @@ export const FinalCTA: React.FC = () => {
   const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL || '#';
   
   return (
-    <section className="relative bg-gradient-to-b from-white via-gray-50/30 to-white py-20 md:py-28 lg:py-32">
+    <section className="relative bg-gradient-to-b from-white via-gray-50/30 to-white py-20 md:py-28 lg:py-32 overflow-x-hidden">
       {/* Subtle divider */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
       
@@ -37,24 +37,26 @@ export const FinalCTA: React.FC = () => {
             <p className="text-lg md:text-xl text-[#424245] mb-8 max-w-2xl mx-auto">
               Every day you wait is another day of chasing leads that go cold. Stop the cycle. Start filling your calendar.
             </p>
-            <motion.div
-              whileHover={{ scale: 1.03, y: -2 }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ duration: 0.2 }}
-            >
-              <Button
-                href={calendlyUrl}
-                variant="primary"
-                size="lg"
-                className="text-lg px-10 py-5 shadow-[0_8px_24px_-8px_rgba(6,182,212,0.4)] hover:shadow-[0_12px_32px_-8px_rgba(6,182,212,0.5)] transition-all"
+            <div className="flex flex-col items-center">
+              <motion.div
+                whileHover={{ scale: 1.03, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.2 }}
               >
-                Book your free calendar audit
-                <ArrowRight className="inline-block ml-2 w-5 h-5" />
-              </Button>
-            </motion.div>
-            <p className="text-sm text-[#86868b] mt-4">
-              Takes 2 minutes. No commitment. See if Rabrix can fill your calendar.
-            </p>
+                <Button
+                  href={calendlyUrl}
+                  variant="primary"
+                  size="lg"
+                  className="text-lg px-10 py-5 shadow-[0_8px_24px_-8px_rgba(6,182,212,0.4)] hover:shadow-[0_12px_32px_-8px_rgba(6,182,212,0.5)] transition-all"
+                >
+                  Fill My Calendar
+                  <ArrowRight className="inline-block ml-2 w-5 h-5" />
+                </Button>
+              </motion.div>
+              <p className="text-xs text-[#86868b] mt-2">
+                Takes 2 minutes. No commitment.
+              </p>
+            </div>
           </motion.div>
 
           {/* Divider */}

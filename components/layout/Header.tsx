@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Container } from '@/components/ui/Container';
+import { Button } from '@/components/ui/Button';
 
 export const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,7 +16,8 @@ export const Header: React.FC = () => {
           <Link href="/" className="flex items-center group">
             <div className="relative flex items-center justify-center">
               <Image
-                src="/logos/20251123_000357.png"
+                // src="/logos/20251123_000357.png"
+                src="https://p6l2vyu7e8eitno5.public.blob.vercel-storage.com/Logos/Rabrix.png"
                 alt="Rabrix"
                 width={120}
                 height={120}
@@ -26,12 +28,12 @@ export const Header: React.FC = () => {
           </Link>
           
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-10">
+          <div className="hidden md:flex items-center space-x-8">
             <Link 
-              href="#solution" 
+              href="#comparison" 
               className="text-sm text-[#1d1d1f] hover:text-[#06B6D4] transition-colors duration-200 font-normal"
             >
-              How It Works
+              Comparison
             </Link>
             <Link 
               href="#pricing" 
@@ -45,6 +47,14 @@ export const Header: React.FC = () => {
             >
               FAQ
             </Link>
+            <Button
+              href={process.env.NEXT_PUBLIC_CALENDLY_URL || '#'}
+              variant="primary"
+              size="sm"
+              className="ml-4"
+            >
+              Fill My Calendar
+            </Button>
           </div>
           
           {/* Mobile Menu Button */}
@@ -65,11 +75,18 @@ export const Header: React.FC = () => {
         {isMenuOpen && (
           <div className="md:hidden border-t border-gray-200/60 py-4 space-y-4">
             <Link 
-              href="#solution" 
+              href="#how-it-works" 
               className="block text-sm text-[#1d1d1f] hover:text-[#06B6D4] transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
-              How It Works
+              How it works
+            </Link>
+            <Link 
+              href="#comparison" 
+              className="block text-sm text-[#1d1d1f] hover:text-[#06B6D4] transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Comparison
             </Link>
             <Link 
               href="#pricing" 
@@ -85,6 +102,16 @@ export const Header: React.FC = () => {
             >
               FAQ
             </Link>
+            <div className="pt-2">
+              <Button
+                href={process.env.NEXT_PUBLIC_CALENDLY_URL || '#'}
+                variant="primary"
+                size="sm"
+                className="w-full"
+              >
+                Book your free calendar audit
+              </Button>
+            </div>
           </div>
         )}
       </Container>

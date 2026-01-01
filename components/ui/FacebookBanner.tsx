@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Facebook, ExternalLink } from 'lucide-react';
+import { Facebook, MessageSquare, Sparkles } from 'lucide-react';
 
 interface FacebookBannerProps {
   className?: string;
@@ -19,44 +19,73 @@ export const FacebookBanner: React.FC<FacebookBannerProps> = ({ className = '' }
       transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
       className={`${className}`}
     >
-      <div className="rounded-2xl bg-gradient-to-br from-[#1877F2]/10 via-[#1877F2]/5 to-[#42A5F5]/10 border-2 border-[#1877F2]/20 p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 max-w-2xl mx-auto">
-        <div className="flex items-center gap-4 mb-4">
-          <a
-            href={FACEBOOK_PROFILE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-12 h-12 rounded-full bg-gradient-to-br from-[#1877F2] to-[#42A5F5] flex items-center justify-center shadow-md hover:scale-110 transition-transform duration-200"
-          >
-            <Facebook className="w-6 h-6 text-white" />
-          </a>
-          <div>
-            <p className="text-lg md:text-xl font-bold text-[#1d1d1f] mb-1">
+      <div className="relative rounded-2xl bg-gradient-to-br from-[#1877F2]/10 via-white to-[#42A5F5]/5 border-2 border-[#1877F2]/20 p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 max-w-xl mx-auto overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-0 right-0 w-40 h-40 bg-[#1877F2] rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#42A5F5] rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }} />
+        </div>
+        
+        <div className="relative z-10">
+          {/* Icon Header */}
+          <div className="flex justify-center mb-4">
+            <motion.div
+              animate={{ 
+                scale: [1, 1.1, 1],
+                rotate: [0, 5, -5, 0]
+              }}
+              transition={{ 
+                duration: 3,
+                repeat: Infinity,
+                repeatType: "reverse"
+              }}
+              className="w-16 h-16 rounded-full bg-gradient-to-br from-[#1877F2] to-[#42A5F5] flex items-center justify-center shadow-lg"
+            >
+              <Facebook className="w-8 h-8 text-white" />
+            </motion.div>
+          </div>
+          
+          <div className="text-center">
+            <h3 className="text-xl md:text-2xl font-semibold text-[#1d1d1f] mb-2">
               Prefer to start more casually?
+            </h3>
+            
+            <div className="mb-5">
+              <p className="text-sm text-[#86868b] mb-3">Add me on Facebook and DM:</p>
+              <motion.div
+                initial={{ scale: 0.95 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                className="inline-block bg-gradient-to-r from-[#1877F2]/10 to-[#42A5F5]/10 border-2 border-[#1877F2]/30 rounded-xl px-5 py-3 shadow-sm"
+              >
+                <div className="flex items-center gap-2">
+                  <MessageSquare className="w-4 h-4 text-[#1877F2] flex-shrink-0" />
+                  <p className="text-sm md:text-base font-semibold text-[#1877F2] italic">
+                    "Hey, can you send me the Rabrix secret?"
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+            
+            <p className="text-xs md:text-sm text-[#86868b] mb-6">
+              I'll walk you through how it works, no pressure.
             </p>
-            <a
+            
+            <motion.a
               href={FACEBOOK_PROFILE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm md:text-base text-[#1877F2] hover:text-[#42A5F5] transition-colors inline-flex items-center gap-1"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="group relative inline-flex items-center gap-2.5 bg-gradient-to-r from-[#1877F2] to-[#42A5F5] hover:from-[#42A5F5] hover:to-[#1877F2] text-white font-bold px-8 py-3.5 rounded-xl shadow-lg shadow-[#1877F2]/30 hover:shadow-[#1877F2]/50 transition-all duration-300 overflow-hidden"
             >
-              Connect with me on Facebook
-              <ExternalLink className="w-3 h-3" />
-            </a>
+              {/* Shine effect */}
+              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+              
+              <Facebook className="w-5 h-5 relative z-10" />
+              <span className="relative z-10">DM me on Facebook</span>
+            </motion.a>
           </div>
-        </div>
-        
-        <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 md:p-5 border border-[#1877F2]/10">
-          <p className="text-sm md:text-base text-[#424245] mb-3">
-            Add me on Facebook and send:
-          </p>
-          <div className="inline-block bg-[#1877F2]/10 border border-[#1877F2]/20 rounded-lg px-4 py-2 mb-3">
-            <p className="text-sm md:text-base font-semibold text-[#1877F2] font-mono">
-              'Hey, can you send me the Rabrix secret?'
-            </p>
-          </div>
-          <p className="text-sm md:text-base text-[#86868b]">
-            I'll show you how it works.
-          </p>
         </div>
       </div>
     </motion.div>

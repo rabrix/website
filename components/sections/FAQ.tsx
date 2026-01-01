@@ -11,27 +11,27 @@ interface FAQItem {
 const faqs: FAQItem[] = [
   {
     question: 'Is this an agency?',
-    answer: 'Not in the traditional sense. We don\'t lock you into big retainers or send vanity reports. Rabrix sets up and manages your lead generation, and then does the follow-up and qualification for you. You cover ad spend and a simple platform fee, and we only earn when we put buyer appointments on your calendar.',
+    answer: 'Not in the traditional sense. We don\'t lock you into big retainers. Rabrix sets up and manages your lead generation, then does the follow-up and qualification. You cover ad spend and a simple platform fee. We only make money when buyer appointments show up on your calendar.',
   },
   {
-    question: 'How fast do you follow up with new leads?',
-    answer: 'New leads are followed up with very quickly during your set business hours, via messages and calls, so you\'re not losing them to slower agents.',
+    question: 'How fast do you follow up?',
+    answer: 'New leads are followed up within minutes during your set business hours, via messages and calls. You won\'t lose them to slower agents.',
   },
   {
-    question: 'Will you spam my leads?',
-    answer: 'No. We use conversational, human-sounding messages and calls, with reasonable follow-up cadences. People can opt out at any time.',
+    question: 'Do I need ads running already?',
+    answer: 'No. We can help set up and manage your online lead campaigns from scratch. The leads run from your brand and are yours.',
   },
   {
-    question: 'What information do I get before each appointment?',
-    answer: 'You see a simple summary: budget, area, timeline, key needs and challenges, plus a history of the conversation so you\'re never walking in cold.',
+    question: 'What if it doesn\'t work in 30 days?',
+    answer: 'We adjust strategy. If it still doesn\'t work, you can cancel anytime. No long-term contracts. We take the risk.',
   },
   {
-    question: 'Do I need to already have ads running?',
-    answer: 'No. We can help set up and manage your online lead campaigns for you.',
+    question: 'Do I keep the leads?',
+    answer: 'Yes. Campaigns run from your brand and ad accounts. Every lead is yours. When you stop, you keep everything we\'ve built.',
   },
   {
-    question: 'How long does it take to get started?',
-    answer: 'Typically just a few days once we\'ve had a quick call and connected the basics (your calendar and any existing lead sources).',
+    question: 'What markets do you work in?',
+    answer: 'We work with real estate agents across North America. On the call, we\'ll confirm if your market is a good fit and walk through the numbers.',
   },
 ];
 
@@ -49,38 +49,6 @@ export const FAQ: React.FC = () => {
       
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          {/* Trust Strip - Who's behind Rabrix */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-            className="mb-12 md:mb-16"
-          >
-            <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6 rounded-2xl border border-gray-200/60 bg-white/80 backdrop-blur-sm p-5 md:p-6 shadow-lg shadow-black/10">
-              {/* Avatar placeholder */}
-              <div className="size-14 rounded-full bg-[#06B6D4] flex items-center justify-center text-white text-xl font-semibold flex-shrink-0">
-                SV
-              </div>
-              <div className="flex-1">
-                <p className="text-sm md:text-base text-[#424245] leading-relaxed mb-2">
-                  I've been building outbound systems for years. I saw realtors drowning in follow-up, working 14-hour days with empty calendars. I built Rabrix to fix it.
-                </p>
-                <a
-                  href="https://www.facebook.com/shashank.vishwakarma.16121/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm font-semibold text-[#06B6D4] hover:text-[#0891B2] transition-colors inline-flex items-center gap-1"
-                >
-                  Connect with me on Facebook
-                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </motion.div>
-
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

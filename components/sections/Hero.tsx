@@ -3,13 +3,13 @@
 import React from 'react';
 import { Button } from '@/components/ui/Button';
 import { motion } from 'framer-motion';
-import { ArrowDown, XCircle, Clock } from 'lucide-react';
+import { ArrowDown, TrendingDown, Clock } from 'lucide-react';
 
 export const Hero: React.FC = () => {
   const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL || '#';
   
   return (
-    <section className="relative bg-gradient-to-b from-white via-white to-gray-50/30 py-16 md:py-24 lg:py-32 overflow-hidden">
+    <section className="relative bg-gradient-to-b from-white via-white to-gray-50/30 pt-8 md:pt-12 lg:pt-16 pb-16 md:pb-24 lg:pb-32 overflow-x-hidden">
       {/* Enhanced background gradients with more depth */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-gradient-to-br from-[#06B6D4]/10 via-[#06B6D4]/5 to-transparent rounded-full blur-3xl" />
@@ -19,17 +19,17 @@ export const Hero: React.FC = () => {
       
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center">
-          {/* Pain Point Hook - More Visual Impact */}
+          {/* Pain Point Hook - Red Gradient Design */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] }}
             className="mb-10"
           >
-            <div className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[#06B6D4]/10 via-[#06B6D4]/5 to-[#06B6D4]/10 border-2 border-[#06B6D4]/30 px-6 py-3 shadow-lg backdrop-blur-sm">
-              <XCircle className="w-5 h-5 text-[#06B6D4] flex-shrink-0" />
-              <p className="text-base md:text-lg font-bold text-[#06B6D4]">
-                Spending $500–$5,000/month on leads... <span className="text-[#06B6D4]/80">still getting empty calendars</span>
+            <div className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-red-50/90 via-orange-50/80 to-red-50/90 border-2 border-red-200/60 px-6 py-3 shadow-lg backdrop-blur-sm">
+              <TrendingDown className="w-5 h-5 text-red-500 flex-shrink-0" />
+              <p className="text-base md:text-lg font-bold bg-gradient-to-r from-red-600 via-red-500 to-orange-600 bg-clip-text text-transparent">
+                Spending $500–$5,000/month on leads... <span className="bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent">still getting empty calendars</span>
               </p>
             </div>
           </motion.div>
@@ -59,99 +59,60 @@ export const Hero: React.FC = () => {
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="w-24 h-1 bg-gradient-to-r from-transparent via-[#06B6D4]/40 to-transparent mx-auto mb-10 rounded-full"
+            className="w-24 h-1 bg-gradient-to-r from-transparent via-[#06B6D4]/40 to-transparent mx-auto mb-8 rounded-full"
           />
 
-          {/* The Pain Scenario - More Visual with Emotional Depth */}
+          {/* Subhead - What Rabrix Does */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.43, 0.13, 0.23, 0.96] }}
-            className="mb-10 max-w-3xl mx-auto"
+            className="mb-8 max-w-3xl mx-auto"
           >
-            <div className="rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/60 p-6 md:p-8 shadow-lg">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#06B6D4]/10 flex items-center justify-center">
-                  <Clock className="w-5 h-5 text-[#06B6D4]" />
-                </div>
-                <div className="text-left">
-                  <p className="text-lg md:text-xl lg:text-2xl text-[#424245] leading-relaxed">
-                    You're at a showing when <span className="font-semibold text-[#1d1d1f]">5 leads come in</span>. By the time you call them, they've already talked to <span className="font-semibold text-[#06B6D4]">3 other agents</span>.
-                  </p>
-                  <p className="text-base md:text-lg text-[#86868b] mt-2 italic">
-                    You're chasing ghosts.
-                  </p>
-                </div>
-              </div>
-            </div>
+            <p className="text-lg md:text-xl lg:text-2xl text-[#424245] leading-relaxed">
+            Rabrix generates fresh buyer leads, nurtures them automatically, and books only qualified buyer appointments straight onto your calendar.
+            </p>
           </motion.div>
 
-          {/* Emotional Pain Points - The Real Cost */}
+          {/* One Line of Emotion */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.25, ease: [0.43, 0.13, 0.23, 0.96] }}
-            className="mb-10 max-w-3xl mx-auto"
+            className="mb-8 max-w-2xl mx-auto"
           >
-            <div className="rounded-2xl bg-gradient-to-br from-red-50/50 via-orange-50/30 to-red-50/50 border border-red-200/40 p-6 md:p-8 shadow-md">
-              <p className="text-base md:text-lg text-[#6b7280] font-semibold mb-3 text-center">
-                It's not just empty calendars. It's:
-              </p>
-              <div className="space-y-2 text-left">
-                <p className="text-sm md:text-base text-[#424245] flex items-start gap-2">
-                  <span className="text-red-400 mt-1">•</span>
-                  <span>Missing your kid's soccer game for a lead that never called back</span>
-                </p>
-                <p className="text-sm md:text-base text-[#424245] flex items-start gap-2">
-                  <span className="text-red-400 mt-1">•</span>
-                  <span>Watching your savings drain while you 'wait for the next deal'</span>
-                </p>
-                <p className="text-sm md:text-base text-[#424245] flex items-start gap-2">
-                  <span className="text-red-400 mt-1">•</span>
-                  <span>The anxiety of not knowing if next month will be different</span>
-                </p>
-              </div>
-            </div>
+            <p className="text-base md:text-lg text-[#86868b] italic">
+              No more chasing ghosts after <span className="text-red-500">14-hour days</span>.
+            </p>
           </motion.div>
 
-          {/* The Solution - Clean and Direct */}
+          {/* $0 Upfront - Badge Style Design */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.43, 0.13, 0.23, 0.96] }}
-            className="mb-10 max-w-3xl mx-auto"
-          >
-            <p className="text-xl md:text-2xl lg:text-3xl text-[#1d1d1f] font-bold mb-4">
-              We respond in minutes. We follow up 7–9 times. We qualify them.
-            </p>
-            <p className="text-2xl md:text-3xl lg:text-4xl text-[#1d1d1f] font-bold">
-              <span className="gradient-premium">You just show up and close.</span>
-            </p>
-          </motion.div>
-
-          {/* $0 Upfront Hook - Cleaner, Less Overwhelming */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: [0.43, 0.13, 0.23, 0.96] }}
             className="mb-10 max-w-2xl mx-auto"
           >
-            <div className="rounded-2xl bg-white/90 backdrop-blur-sm border-2 border-[#06B6D4]/20 p-6 md:p-8 shadow-lg hover:shadow-xl transition-shadow">
-              <div className="text-center">
-                <p className="text-2xl md:text-3xl font-bold text-[#1d1d1f] mb-3">
-                  $0 upfront. <span className="gradient-premium-alt">We take the risk.</span>
-                </p>
-                <p className="text-base md:text-lg text-[#424245] leading-relaxed mb-4">
-                  You cover ad spend (you're already doing that). We handle follow-up, qualification, and booking.
-                </p>
-                <p className="text-sm md:text-base font-semibold text-[#1d1d1f] mb-4">
-                  We only get paid when buyer appointments show up on your calendar.
-                </p>
-                <div className="pt-4 border-t border-gray-200/60">
-                  <p className="text-sm text-[#86868b]">
-                    No retainers. No monthly fees for "management." Just appointments.
-                  </p>
-                </div>
+            <div className="inline-flex flex-col items-center gap-2 px-6 py-4 rounded-2xl bg-white/90 backdrop-blur-sm border border-[#06B6D4]/20 shadow-md">
+              <div className="flex items-center gap-2 flex-wrap justify-center">
+                <span className="text-xl md:text-2xl font-bold text-[#1d1d1f]">
+                  $0 upfront.
+                </span>
+                <span className="text-xl md:text-2xl font-bold text-[#06B6D4]">
+                  We take the risk.
+                </span>
+              </div>
+              <p className="text-xs md:text-sm font-semibold text-[#424245] text-center leading-tight max-w-md">
+                We only make money when buyer appointments show up on your calendar.
+              </p>
+              <div className="flex items-center gap-1.5 flex-wrap justify-center mt-1">
+                <span className="text-xs text-[#86868b]">No upfront setup fees</span>
+                <span className="text-[#86868b]">•</span>
+                <span className="text-xs text-[#86868b]">No retainers</span>
+                <span className="text-[#86868b]">•</span>
+                <span className="text-xs text-[#86868b]">No management fees</span>
+                <span className="text-[#86868b]">•</span>
+                <span className="text-xs font-medium text-[#06B6D4]">Just appointments</span>
               </div>
             </div>
           </motion.div>
@@ -163,20 +124,25 @@ export const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.5, ease: [0.43, 0.13, 0.23, 0.96] }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            <motion.div
-              whileHover={{ scale: 1.03, y: -2 }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ duration: 0.2 }}
-            >
-              <Button
-                href={calendlyUrl}
-                variant="primary"
-                size="lg"
-                className="text-lg px-10 py-5 shadow-[0_8px_24px_-8px_rgba(6,182,212,0.4)] hover:shadow-[0_12px_32px_-8px_rgba(6,182,212,0.5)] transition-all"
+            <div className="flex flex-col items-center">
+              <motion.div
+                whileHover={{ scale: 1.03, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.2 }}
               >
-                Stop losing leads. Get your free calendar audit
-              </Button>
-            </motion.div>
+                <Button
+                  href={calendlyUrl}
+                  variant="primary"
+                  size="lg"
+                  className="text-lg px-8 py-3 shadow-[0_8px_24px_-8px_rgba(6,182,212,0.4)] hover:shadow-[0_12px_32px_-8px_rgba(6,182,212,0.5)] transition-all"
+                >
+                  Fill My Calendar
+                </Button>
+              </motion.div>
+              <p className="text-xs text-[#86868b] mt-2">
+                Book your free calendar audit
+              </p>
+            </div>
             <motion.div
               whileHover={{ y: -2 }}
               transition={{ duration: 0.2 }}

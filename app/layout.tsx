@@ -38,9 +38,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       </head>
-      <body className="antialiased bg-white text-[#1d1d1f]">
+      <body className="antialiased bg-white text-[#1d1d1f] overflow-x-hidden">
         <Header />
-        <main>{children}</main>
+        <main className="overflow-x-hidden">{children}</main>
         <Footer />
       </body>
     </html>

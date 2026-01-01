@@ -1,20 +1,14 @@
 import { Hero } from "@/components/sections/Hero";
+import { MicroTrustStrip } from "@/components/sections/MicroTrustStrip";
 import dynamic from "next/dynamic";
 import { StickyCTA } from "@/components/ui/StickyCTA";
-import { Testimonials } from "@/components/sections/Testimonials";
+import { Realization } from "@/components/sections/Realization";
 
 // Lazy load below-fold sections for better initial load performance
 const WithoutRabrix = dynamic(
   () => import("@/components/sections/WithoutRabrix").then((mod) => ({ default: mod.WithoutRabrix })),
   {
     loading: () => <SectionSkeleton height="h-[600px] md:h-[700px]" />,
-  }
-);
-
-const Realization = dynamic(
-  () => import("@/components/sections/Realization").then((mod) => ({ default: mod.Realization })),
-  {
-    loading: () => <SectionSkeleton height="h-[400px] md:h-[500px]" />,
   }
 );
 
@@ -32,10 +26,17 @@ const Outcomes = dynamic(
   }
 );
 
-const SocialProof = dynamic(
-  () => import("@/components/sections/SocialProof").then((mod) => ({ default: mod.SocialProof })),
+const Comparison = dynamic(
+  () => import("@/components/sections/Comparison").then((mod) => ({ default: mod.Comparison })),
   {
     loading: () => <SectionSkeleton height="h-[500px] md:h-[600px]" />,
+  }
+);
+
+const HowItWorks = dynamic(
+  () => import("@/components/sections/HowItWorks").then((mod) => ({ default: mod.HowItWorks })),
+  {
+    loading: () => <SectionSkeleton height="h-[400px] md:h-[500px]" />,
   }
 );
 
@@ -46,8 +47,8 @@ const Offer = dynamic(
   }
 );
 
-const Pricing = dynamic(
-  () => import("@/components/sections/Pricing").then((mod) => ({ default: mod.Pricing })),
+const SocialProof = dynamic(
+  () => import("@/components/sections/SocialProof").then((mod) => ({ default: mod.SocialProof })),
   {
     loading: () => <SectionSkeleton height="h-[300px] md:h-[400px]" />,
   }
@@ -85,14 +86,15 @@ export default function Home() {
   return (
     <>
       <Hero />
+      {/* <MicroTrustStrip /> */}
       <WithoutRabrix />
-      <Realization />
       <WithRabrix />
+      <Realization />
       <Outcomes />
-      <SocialProof />
-      {/* <Testimonials /> */}
+      <Comparison />
+      {/* <HowItWorks /> */}
       <Offer />
-      <Pricing />
+      <SocialProof />
       <FAQ />
       <FinalCTA />
       <StickyCTA />

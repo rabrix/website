@@ -46,7 +46,7 @@ export const Offer: React.FC = () => {
             className="mb-6"
           >
             <p className="text-sm md:text-base text-[#86868b] italic">
-              Every day you wait, 47 leads in your market are talking to other agents.
+              Every day you wait, dozens of leads in your market are talking to other agents.
             </p>
           </motion.div>
 
@@ -68,7 +68,7 @@ export const Offer: React.FC = () => {
                 $0 upfront.
               </p>
               <p className="text-xl md:text-2xl text-[#424245] leading-relaxed">
-                You cover ad spend. We handle everything else. <span className="font-semibold text-[#1d1d1f]">We only get paid when appointments show up on your calendar.</span>
+                You cover ad spend. We handle everything else. <span className="font-semibold text-[#1d1d1f]">We only make money when appointments show up on your calendar.</span>
               </p>
             </div>
           </motion.div>
@@ -85,7 +85,7 @@ export const Offer: React.FC = () => {
               <div className="flex items-start gap-3 p-4 rounded-xl bg-gray-50/50 border border-gray-200/50">
                 <CheckCircle2 className="w-6 h-6 text-[#06B6D4] flex-shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-semibold text-[#1d1d1f] mb-1">We build your lead engine</p>
+                  <p className="font-semibold text-[#1d1d1f] mb-1">We build your lead engine to generate fresh buyer leads</p>
                   <p className="text-sm text-[#424245]">Set up and run your online lead campaigns</p>
                 </div>
               </div>
@@ -93,24 +93,24 @@ export const Offer: React.FC = () => {
               <div className="flex items-start gap-3 p-4 rounded-xl bg-gray-50/50 border border-gray-200/50">
                 <CheckCircle2 className="w-6 h-6 text-[#06B6D4] flex-shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-semibold text-[#1d1d1f] mb-1">We follow up 7–9 times</p>
-                  <p className="text-sm text-[#424245]">Every lead gets qualified, no exceptions</p>
+                  <p className="font-semibold text-[#1d1d1f] mb-1">Rabrix reaches out and follows up 7–9 times</p>
+                  <p className="text-sm text-[#424245]">Every lead gets qualified with consistent energy and attention</p>
                 </div>
               </div>
               
               <div className="flex items-start gap-3 p-4 rounded-xl bg-gray-50/50 border border-gray-200/50">
                 <CheckCircle2 className="w-6 h-6 text-[#06B6D4] flex-shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-semibold text-[#1d1d1f] mb-1">We book appointments</p>
-                  <p className="text-sm text-[#424245]">Buyer meetings appear on your calendar</p>
+                  <p className="font-semibold text-[#1d1d1f] mb-1">We book appointments for you with qualified buyers</p>
+                  <p className="text-sm text-[#424245]">Buyer meetings appear on your calendar and app dashboard</p>
                 </div>
               </div>
               
               <div className="flex items-start gap-3 p-4 rounded-xl bg-gray-50/50 border border-gray-200/50">
                 <CheckCircle2 className="w-6 h-6 text-[#06B6D4] flex-shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-semibold text-[#1d1d1f] mb-1">You just show up and close</p>
-                  <p className="text-sm text-[#424245]">With full buyer context before each meeting</p>
+                  <p className="font-semibold text-[#1d1d1f] mb-1">You just show up and close the deals</p>
+                  <p className="text-sm text-[#424245]">With full buyer context before each meeting, so you can close deals without any surprises</p>
                 </div>
               </div>
             </div>
@@ -123,22 +123,27 @@ export const Offer: React.FC = () => {
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
           >
-            <motion.div
-              whileHover={{ scale: 1.03, y: -2 }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ duration: 0.2 }}
-            >
-              <a
-                href={calendlyUrl}
-                className="inline-flex items-center gap-3 bg-[#06B6D4] hover:bg-[#0891B2] text-white font-semibold px-8 py-4 rounded-full text-lg shadow-[0_8px_24px_-8px_rgba(6,182,212,0.4)] hover:shadow-[0_12px_32px_-8px_rgba(6,182,212,0.5)] transition-all duration-200"
+            <div className="flex flex-col items-center">
+              <motion.div
+                whileHover={{ scale: 1.03, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.2 }}
               >
-                Claim your spot (only 3 left this month)
-                <ArrowRight className="w-5 h-5" />
-              </a>
-            </motion.div>
-            <p className="text-sm text-[#86868b] mt-4">
-              No commitment. See if we're a fit in 15 minutes.
-            </p>
+                <a
+                  href={calendlyUrl}
+                  className="inline-flex items-center gap-3 bg-[#06B6D4] hover:bg-[#0891B2] text-white font-semibold px-8 py-4 rounded-full text-lg shadow-[0_8px_24px_-8px_rgba(6,182,212,0.4)] hover:shadow-[0_12px_32px_-8px_rgba(6,182,212,0.5)] transition-all duration-200"
+                >
+                  Build My Buyer Engine
+                  <ArrowRight className="w-5 h-5" />
+                </a>
+              </motion.div>
+              <p className="text-xs text-[#86868b] mt-2">
+                Claim your pilot spot – book your free calendar audit
+              </p>
+              <p className="text-sm text-[#86868b] mt-2">
+                No commitment. See if we're a fit in 15 minutes.
+              </p>
+            </div>
           </motion.div>
 
           {/* Trust Badges and Risk Reversal */}

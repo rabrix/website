@@ -3,6 +3,7 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { ArrowDown } from 'lucide-react';
 
 const moments = [
   {
@@ -41,7 +42,7 @@ export const WithoutRabrix: React.FC = () => {
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   return (
-    <section id="without-rabrix" className="relative bg-gradient-to-b from-white via-gray-50/30 to-gray-50/50 py-12 md:py-16 lg:py-20 overflow-hidden">
+    <section id="without-rabrix" className="relative bg-gradient-to-b from-white via-gray-50/30 to-gray-50/50 py-12 md:py-16 lg:py-20 overflow-x-hidden">
       {/* Background texture */}
       <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
       
@@ -54,11 +55,10 @@ export const WithoutRabrix: React.FC = () => {
           transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
           className="text-center mb-8 md:mb-10 lg:mb-12"
         >
-          <div className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-[#86868b] mb-2">See your day</div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-[-0.02em] text-[#1d1d1f] mb-1">
-            This is what <span className="gradient-premium">your day looks like</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-[-0.02em] text-[#1d1d1f] mb-3">
+            See your day <span className="gradient-premium">without Rabrix</span>
           </h2>
-          <p className="text-xs md:text-sm text-[#424245] max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-[#424245] max-w-2xl mx-auto">
             Every single day. You're working. You're trying. Your calendar stays empty.
           </p>
         </motion.div>
@@ -77,7 +77,8 @@ export const WithoutRabrix: React.FC = () => {
               {/* Image sized bigger to sync with 5-card circular arc pattern */}
               <div className="relative w-full aspect-[3/4] md:aspect-[2/3] lg:aspect-auto lg:h-[60vh] lg:max-h-[550px] mx-auto lg:mx-0">
                 <Image
-                  src="/banners/Without_Rabrix.png"
+                  // src="/banners/Without_Rabrix.png"
+                  src="https://p6l2vyu7e8eitno5.public.blob.vercel-storage.com/Public/Without_Rabrix.png"
                   alt="Your day without Rabrix - tired, overwhelmed, chasing leads"
                   fill
                   className="object-contain"
@@ -166,6 +167,59 @@ export const WithoutRabrix: React.FC = () => {
           </div>
         </div>
 
+        {/* Emotional Pain Points - The Real Cost */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+          className="mt-8 md:mt-10 lg:mt-12 max-w-4xl mx-auto"
+        >
+          <div className="rounded-3xl bg-gradient-to-br from-white via-orange-50/30 to-amber-50/20 border-2 border-orange-200/30 p-8 md:p-10 lg:p-12 shadow-2xl">
+            {/* Headline */}
+            <div className="flex items-center justify-center gap-2 mb-6">
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#1d1d1f] leading-tight text-center">
+                It's not just empty calendars. <span className="text-orange-600">It's the real cost.</span>
+              </h3>
+            </div>
+            
+            {/* Pain Points - Matching Realization style */}
+            <div className="space-y-4 text-left max-w-2xl mx-auto">
+              <div className="flex items-start gap-3">
+                <div className="w-6 h-6 rounded-full bg-orange-100/60 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-2 h-2 rounded-full bg-orange-500" />
+                </div>
+                <p className="text-base md:text-lg text-[#424245] leading-relaxed">
+                  <span className="font-semibold text-[#1d1d1f]">Missing your kid's soccer game</span> for a lead that never called back.
+                </p>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-6 h-6 rounded-full bg-orange-100/60 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-2 h-2 rounded-full bg-orange-500" />
+                </div>
+                <p className="text-base md:text-lg text-[#424245] leading-relaxed">
+                  <span className="font-semibold text-[#1d1d1f]">Watching your savings drain</span> while you 'wait for the next deal'.
+                </p>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-6 h-6 rounded-full bg-orange-100/60 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-2 h-2 rounded-full bg-orange-500" />
+                </div>
+                <p className="text-base md:text-lg text-[#424245] leading-relaxed">
+                  <span className="font-semibold text-[#1d1d1f]">The anxiety of not knowing</span> if next month will be different.
+                </p>
+              </div>
+            </div>
+
+            {/* Closing Hook */}
+            <div className="mt-8 pt-6 border-t border-orange-200/30">
+              <p className="text-lg md:text-xl font-semibold text-[#1d1d1f] text-center">
+                This doesn't have to be your reality 😕 <span className="text-orange-600">There's a better way.</span>
+              </p>
+            </div>
+          </div>
+        </motion.div>
+
         {/* Compact Bottom Hook */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -174,12 +228,19 @@ export const WithoutRabrix: React.FC = () => {
           transition={{ duration: 0.4, delay: 0.2 }}
           className="text-center mt-8 md:mt-10 lg:mt-12"
         >
-          <p className="text-lg md:text-xl font-bold text-[#1d1d1f] mb-1">
+          <p className="text-lg md:text-xl font-bold text-[#1d1d1f] mb-2">
             Sound familiar?
           </p>
-          <p className="text-sm md:text-base text-[#424245]">
-            This doesn't have to be your day. Keep scrolling.
+          <p className="text-base md:text-lg text-[#424245] mb-4">
+            This doesn't have to be your day.
           </p>
+          <a
+            href="#with-rabrix"
+            className="inline-flex items-center gap-2 text-[#06B6D4] hover:text-[#0891B2] font-semibold transition-colors text-sm md:text-base"
+          >
+            See your day with Rabrix
+            <ArrowDown className="w-4 h-4" />
+          </a>
         </motion.div>
       </div>
     </section>

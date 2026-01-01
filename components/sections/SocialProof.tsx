@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { TrendingUp, Shield, Clock, CheckCircle2, Zap, Building2 } from 'lucide-react';
 // ============================================
 // TESTIMONIALS COMPONENT - EASILY TOGGLEABLE
@@ -16,7 +17,7 @@ import { TrendingUp, Shield, Clock, CheckCircle2, Zap, Building2 } from 'lucide-
 const trustPillars = [
   {
     title: '$0 upfront risk',
-    description: 'We only get paid when appointments show up on your calendar. You take zero financial risk.',
+    description: 'We only make money when appointments show up on your calendar. You take zero financial risk.',
     icon: Shield,
     highlight: true
   },
@@ -47,8 +48,8 @@ const experience = {
   realtorSpecific: 'Built systems specifically for realtor lead follow-up'
 };
 
-const pilotProgram = {
-  status: 'Pilot Program',
+const earlyAccess = {
+  status: 'Early Access for Realtors',
   spots: 'Limited to 10 agents',
   benefit: 'Founder pricing + priority support',
   timeframe: 'Launching Q1 2024'
@@ -91,22 +92,25 @@ export const SocialProof: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={`rounded-2xl border-2 p-6 ${
+                transition={{ duration: 0.6, delay: index * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+                whileHover={{ y: -4, scale: 1.02 }}
+                className={`rounded-2xl border p-6 shadow-sm hover:shadow-lg transition-all text-center ${
                   pillar.highlight 
-                    ? 'bg-gradient-to-br from-[#06B6D4]/10 to-[#0891B2]/5 border-[#06B6D4]/30 shadow-lg' 
-                    : 'bg-white/80 border-gray-200/60 shadow-sm'
-                } hover:shadow-lg transition-all`}
+                    ? 'border-[#06B6D4]/30 bg-white/80 backdrop-blur-sm md:backdrop-blur-xl' 
+                    : 'border-gray-200/60 bg-white/80 backdrop-blur-sm md:backdrop-blur-xl'
+                }`}
               >
-                <Icon className={`w-8 h-8 mb-4 ${pillar.highlight ? 'text-[#06B6D4]' : 'text-[#86868b]'}`} />
-                <h3 className="text-lg font-bold text-[#1d1d1f] mb-2">{pillar.title}</h3>
+                <h3 className="text-lg font-bold text-[#1d1d1f] mb-2 flex items-center justify-center gap-2">
+                  <Icon className={`w-5 h-5 ${pillar.highlight ? 'text-[#06B6D4]' : 'text-[#86868b]'}`} />
+                  {pillar.title}
+                </h3>
                 <p className="text-sm text-[#424245] leading-relaxed">{pillar.description}</p>
               </motion.div>
             );
           })}
         </div>
 
-        {/* Founder Credibility - Using Real Experience */}
+        {/* Founder Credibility - Twitter Post Inspired */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -114,104 +118,105 @@ export const SocialProof: React.FC = () => {
           transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
           className="mb-16"
         >
-          <div className="max-w-4xl mx-auto">
-            <div className="rounded-3xl border-2 border-[#06B6D4]/20 bg-gradient-to-br from-white via-[#06B6D4]/5 to-white p-8 md:p-10 shadow-xl">
-              <div className="flex flex-col md:flex-row items-start gap-6 mb-6">
-                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#06B6D4] to-[#0891B2] flex items-center justify-center text-white text-3xl font-bold flex-shrink-0">
-                  SV
+          <div className="max-w-3xl mx-auto">
+            <div className="rounded-2xl border border-gray-200/60 bg-white p-6 md:p-8 shadow-lg hover:shadow-xl transition-shadow">
+              {/* Profile Header - Horizontal on desktop, vertical on mobile */}
+              <div className="flex flex-col sm:flex-row items-center sm:items-center gap-4 mb-6">
+                <div className="relative w-16 h-16 md:w-20 md:h-20 rounded-full border-1 border-[#06B6D4]/20 overflow-hidden flex-shrink-0">
+                  <Image
+                    src="https://lh3.googleusercontent.com/a/ACg8ocJv3I4269o3OfBjh5m8G0mVKah0IU1vz-BatjAg62N0GXzTwaw=s576-c-no"
+                    alt="Shashank Vishwakarma"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 64px, 80px"
+                  />
                 </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl md:text-3xl font-bold text-[#1d1d1f] mb-3">
-                    Built by someone who's done this at scale
-                  </h3>
-                  <p className="text-base md:text-lg text-[#424245] leading-relaxed mb-6">
-                    I've built and scaled multi-channel outreach systems for thousands of professionals across banking, restaurants, real estate, and professional services. I saw realtors struggling with the same follow-up problems I'd solved for other industries. So I built Rabrix - a system specifically designed for realtor lead follow-up.
-                  </p>
-                  
-                  {/* Experience Badges */}
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
-                    {experience.industries.map((industry, index) => (
-                      <div
-                        key={index}
-                        className="flex items-center gap-2 px-3 py-2 rounded-lg bg-[#06B6D4]/10 border border-[#06B6D4]/20"
-                      >
-                        <Building2 className="w-4 h-4 text-[#06B6D4]" />
-                        <span className="text-sm font-semibold text-[#1d1d1f]">{industry}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Key Points */}
-                  <div className="space-y-3">
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-[#06B6D4] flex-shrink-0 mt-0.5" />
-                      <span className="text-sm md:text-base text-[#424245]">
-                        Built systems for <strong>{experience.professionals}</strong> across multiple industries
-                      </span>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-[#06B6D4] flex-shrink-0 mt-0.5" />
-                      <span className="text-sm md:text-base text-[#424245]">
-                        Specialized in <strong>{experience.focus}</strong> and lead qualification
-                      </span>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-[#06B6D4] flex-shrink-0 mt-0.5" />
-                      <span className="text-sm md:text-base text-[#424245]">
-                        <strong>{experience.realtorSpecific}</strong> - this isn't my first rodeo
-                      </span>
-                    </div>
-                  </div>
-
-                  <a
-                    href="https://www.facebook.com/shashank.vishwakarma.16121/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 mt-6 text-sm font-semibold text-[#06B6D4] hover:text-[#0891B2] transition-colors"
-                  >
-                    Connect with me on Facebook
-                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </a>
+                <div className="flex-1 text-center sm:text-left">
+                  <h3 className="text-lg md:text-xl font-bold text-[#1d1d1f] mb-1">Shashank Vishwakarma</h3>
+                  <p className="text-sm md:text-base text-[#86868b]">Founder & CEO @Rabrix</p>
                 </div>
+              </div>
+
+              {/* Main Content */}
+              <div className="space-y-4 mb-6">
+                <p className="text-base md:text-lg text-[#1d1d1f] leading-relaxed">
+                  Over the years, I've helped thousands of professionals solve their lead follow-up challenges. When I saw realtors struggling with the exact same problems—leads going cold, missed opportunities, empty calendars—I knew there had to be a better way.
+                </p>
+                <p className="text-base md:text-lg text-[#1d1d1f] leading-relaxed">
+                  That's how Rabrix was born. <span className="font-semibold text-[#06B6D4]">You keep 95-98% of your commissions</span> while we handle the follow-up. Just qualified appointments on your calendar.
+                </p>
+                <p className="text-base md:text-lg text-[#1d1d1f] leading-relaxed">
+                  I believe in having skin in the game. <span className="font-semibold text-[#06B6D4]">$0 upfront. Pay per appointment.</span> If we don't deliver results, you don't pay. Simple as that.
+                </p>
+              </div>
+
+              {/* Stats Row */}
+              <div className="flex flex-row gap-3 mb-6">
+                <div className="flex-1 px-4 py-3 rounded-xl bg-[#06B6D4]/5 border border-[#06B6D4]/20 text-center">
+                  <div className="text-2xl md:text-3xl font-bold text-[#06B6D4] mb-1">150+</div>
+                  <div className="text-xs md:text-sm text-[#424245]">Professionals</div>
+                </div>
+                <div className="flex-1 px-4 py-3 rounded-xl bg-[#06B6D4]/5 border border-[#06B6D4]/20 text-center">
+                  <div className="text-2xl md:text-3xl font-bold text-[#06B6D4] mb-1">4</div>
+                  <div className="text-xs md:text-sm text-[#424245]">Industries</div>
+                </div>
+              </div>
+
+              {/* CTA - Engaging Invitation */}
+              <div className="pt-6 border-t border-gray-200/60 flex flex-col items-center justify-center">
+                <p className="text-base md:text-lg text-[#1d1d1f] mb-4 text-center sm:text-left font-medium">
+                Still unsure before hopping on a call? Ask me anything. 👋
+                </p>
+                <a
+                  href="https://www.facebook.com/shashank.vishwakarma.16121/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3 bg-[#06B6D4] hover:bg-[#0891B2] text-white font-semibold rounded-full text-sm md:text-base shadow-lg shadow-[#06B6D4]/30 hover:shadow-[#06B6D4]/40 transition-all duration-300"
+                >
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                  </svg>
+                  Send a "Hi" on Facebook
+                </a>
               </div>
             </div>
           </div>
         </motion.div>
 
-        {/* Why This Matters Section */}
+        {/* Why This Matters + Early Access Combined */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-          className="mb-12"
+          className="mb-16"
         >
-          <div className="max-w-3xl mx-auto rounded-2xl bg-gray-50/50 border border-gray-200/60 p-6 md:p-8">
-            <h4 className="text-xl md:text-2xl font-bold text-[#1d1d1f] mb-4 text-center">
-              Why this matters
-            </h4>
-            <p className="text-base text-[#424245] leading-relaxed text-center">
-              Most "lead follow-up" services are built by people who've never done it at scale. I've built systems that handle thousands of leads across multiple industries. I know what works, what doesn't, and how to scale it. Rabrix isn't an experiment - it's a proven system, adapted specifically for realtors.
-            </p>
-          </div>
-        </motion.div>
+          <div className="max-w-4xl mx-auto rounded-3xl border-2 border-[#06B6D4]/20 bg-gradient-to-br from-white via-[#06B6D4]/5 to-white p-8 md:p-10 lg:p-12 shadow-2xl">
+            {/* Inspiring Quote */}
+            <div className="text-center mb-8">
+              <div className="relative max-w-3xl mx-auto">
+                <svg className="absolute -top-4 -left-4 w-12 h-12 md:w-16 md:h-16 text-[#06B6D4]/20" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.996 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.984zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.432.917-3.995 3.638-3.995 5.849h3.983v10h-9.984z"/>
+                </svg>
+                <blockquote className="text-xl font-semibold text-[#1d1d1f] leading-relaxed italic relative z-10">
+                  Rabrix isn't an experiment—it's a proven system, adapted specifically for realtors.
+                </blockquote>
+                <svg className="absolute -bottom-4 -right-4 w-12 h-12 md:w-16 md:h-16 text-[#06B6D4]/20 rotate-180" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.996 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.984zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.432.917-3.995 3.638-3.995 5.849h3.983v10h-9.984z"/>
+                </svg>
+              </div>
+            </div>
 
-        {/* Pilot Program Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.6, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-          className="text-center mb-16"
-        >
-          <div className="inline-flex items-center gap-3 px-6 py-4 rounded-2xl bg-gradient-to-r from-[#06B6D4]/10 to-[#0891B2]/10 border-2 border-[#06B6D4]/30">
-            <Zap className="w-6 h-6 text-[#06B6D4]" />
-            <div className="text-left">
-              <div className="font-bold text-[#1d1d1f] mb-1">{pilotProgram.status}</div>
-              <div className="text-sm text-[#424245]">
-                {pilotProgram.spots} • {pilotProgram.benefit}
+            {/* Early Access Badge - Matching website theme */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+              <div className="flex items-center gap-3 px-6 py-4 rounded-xl bg-[#06B6D4]/10 border border-[#06B6D4]/20">
+                <Zap className="w-5 h-5 text-[#06B6D4] flex-shrink-0" />
+                <div className="text-center sm:text-left">
+                  <div className="font-bold text-[#1d1d1f] mb-1 text-sm md:text-base">{earlyAccess.status}</div>
+                  <div className="text-xs md:text-sm text-[#424245]">
+                    {earlyAccess.spots} • {earlyAccess.benefit}
+                  </div>
+                </div>
               </div>
             </div>
           </div>

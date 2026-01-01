@@ -2,8 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Button } from '@/components/ui/Button';
-import { X, Calendar } from 'lucide-react';
+import { X, Calendar, ArrowRight, TrendingUp } from 'lucide-react';
 
 export const StickyCTA: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -55,35 +54,61 @@ export const StickyCTA: React.FC = () => {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
           transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-          className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 w-full max-w-md px-4"
+          className="fixed bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] sm:w-[90%] md:w-max max-w-[calc(100vw-2rem)]"
         >
-          <div className="relative bg-white rounded-2xl shadow-2xl border-2 border-[#06B6D4]/20 p-4 backdrop-blur-sm md:backdrop-blur-xl">
+          <div className="relative bg-gradient-to-br from-slate-800 via-slate-800 to-slate-900 border-[#06B6D4]/20  rounded-xl sm:rounded-2xl shadow-2xl border-2 border-[#06B6D4]/30 p-3 sm:p-4 backdrop-blur-sm md:backdrop-blur-xl overflow-visible">
+            {/* Animated background gradient */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#06B6D4]/5 via-transparent to-[#06B6D4]/5 opacity-50 rounded-xl sm:rounded-2xl" />
+            
+            {/* X button - Absolutely positioned in corner, doesn't affect layout */}
             <button
               onClick={handleDismiss}
-              className="absolute top-2 right-2 p-1 rounded-full hover:bg-gray-100 transition-colors"
+              className="absolute -top-1 -right-1 sm:-top-1.5 sm:-right-1.5 p-1 sm:p-1 rounded-full bg-slate-800 border border-slate-700 hover:bg-slate-700 hover:border-slate-600 active:bg-slate-700/80 transition-colors z-30 shadow-md"
               aria-label="Dismiss"
             >
-              <X className="w-4 h-4 text-[#86868b]" />
+              <X className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-slate-400 hover:text-white" />
             </button>
             
-            <div className="flex items-center gap-3 pr-8">
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#06B6D4]/10 flex items-center justify-center">
-                <Calendar className="w-5 h-5 text-[#06B6D4]" />
+            {/* All in row on mobile and desktop */}
+            <div className="relative flex flex-row items-center gap-2 sm:gap-4 z-10">
+              {/* Calendar + Content Row */}
+              <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
+                <div className="flex-shrink-0 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-gradient-to-br from-[#06B6D4]/20 to-[#06B6D4]/10 flex items-center justify-center ring-2 ring-[#06B6D4]/30">
+                  <Calendar className="w-4.5 h-4.5 sm:w-5 sm:h-5 text-[#06B6D4]" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-1 sm:gap-1.5 mb-0.5 sm:mb-1">
+                    <p className="text-xs sm:text-base font-bold text-white leading-tight">
+                      Stop losing leads.
+                    </p>
+                    <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4 text-[#06B6D4] flex-shrink-0" />
+                  </div>
+                  <p className="text-[10px] sm:text-sm font-semibold text-white/90 leading-tight">
+                  Want a <span className="text-[#06B6D4] font-bold">FILLED</span> calendar?
+                  </p>
+                </div>
               </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-sm font-semibold text-[#1d1d1f] mb-1">
-                  Stop losing leads. Get your free calendar audit.
-                </p>
-                <p className="text-xs text-[#86868b]">
-                  See how Rabrix can fill your calendar
-                </p>
-              </div>
-              <a
+              
+              {/* CTA Button - "Fill My Calendar" */}
+              <motion.a
                 href={calendlyUrl}
-                className="flex-shrink-0 bg-[#06B6D4] hover:bg-[#0891B2] text-white font-semibold px-4 py-2 rounded-full text-sm shadow-lg transition-all"
+                whileHover={{ scale: 1.03, y: -1 }}
+                whileTap={{ scale: 0.97 }}
+                className="relative flex-shrink-0 bg-gradient-to-r from-[#06B6D4] to-[#0891B2] hover:from-[#0891B2] hover:to-[#0E7490] text-white font-bold px-3 sm:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm shadow-xl shadow-[#06B6D4]/40 hover:shadow-[#06B6D4]/60 transition-all text-center items-center justify-center gap-1.5 sm:gap-2 group overflow-hidden whitespace-nowrap"
               >
-                Book Now
-              </a>
+                {/* Shine effect on hover */}
+                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+                
+                {/* Pulse animation for attention */}
+                <span className="absolute inset-0 rounded-full bg-[#06B6D4] opacity-0 group-hover:opacity-20 animate-pulse" />
+                
+                <span className="relative flex items-center justify-center gap-1 sm:gap-2">
+                  <span className="text-[9px] sm:text-xs font-bold bg-white/20 px-1 sm:px-1.5 py-0.5 rounded">FREE</span>
+                  <span className="hidden sm:inline">Fill My Calendar</span>
+                  <span className="sm:hidden">Fill Calendar</span>
+                  <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
+                </span>
+              </motion.a>
             </div>
           </div>
         </motion.div>

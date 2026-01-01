@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { StoryCard } from '@/components/ui/StoryCard';
 import { AppointmentSummary } from '@/components/ui/AppointmentSummary';
+import { Button } from '@/components/ui/Button';
 
 const moments = [
   {
@@ -49,7 +50,7 @@ export const WithRabrix: React.FC = () => {
 
 
   return (
-    <section id="with-rabrix" className="relative bg-gradient-to-b from-white via-[#06B6D4]/5 to-white py-12 md:py-16 lg:py-20 overflow-hidden">
+    <section id="with-rabrix" className="relative bg-gradient-to-b from-white via-[#06B6D4]/5 to-white py-12 md:py-16 lg:py-20 overflow-x-hidden">
       {/* Subtle divider */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent z-10" />
       {/* Background texture */}
@@ -64,12 +65,11 @@ export const WithRabrix: React.FC = () => {
           transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
           className="text-center mb-8 md:mb-10 lg:mb-12"
         >
-          <div className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-[#86868b] mb-2">With Rabrix</div>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold tracking-[-0.02em] text-[#1d1d1f] mb-1">
-            This is that day.
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-[-0.02em] text-[#1d1d1f] mb-3">
+            Now, your day <span className="gradient-premium">with Rabrix</span>
           </h2>
-          <p className="text-xs md:text-sm text-[#424245] max-w-2xl mx-auto">
-            Same hours. Same you. <span className="font-semibold text-[#1d1d1f]">Different results.</span>
+          <p className="text-base md:text-lg text-[#424245] max-w-2xl mx-auto">
+            Same you. Same hours. <span className="font-semibold text-[#1d1d1f]">Completely different calendar.</span>
           </p>
         </motion.div>
 
@@ -137,7 +137,8 @@ export const WithRabrix: React.FC = () => {
               {/* Image sized bigger to sync with 5-card circular arc pattern */}
               <div className="relative w-full aspect-[3/4] md:aspect-[2/3] lg:aspect-auto lg:h-[65vh] lg:max-h-[600px] mx-auto">
                 <Image
-                  src="/banners/With_Rabrix.png"
+                  // src="/banners/With_Rabrix.png"
+                  src="https://p6l2vyu7e8eitno5.public.blob.vercel-storage.com/Public/With_Rabrix.png"
                   alt="Your day with Rabrix - confident, prepared, closing deals"
                   fill
                   className="object-contain"
@@ -150,7 +151,7 @@ export const WithRabrix: React.FC = () => {
           </div>
         </div>
 
-        {/* Compact Bottom Hook */}
+        {/* Bridge Sentence and CTA */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -158,12 +159,22 @@ export const WithRabrix: React.FC = () => {
           transition={{ duration: 0.4, delay: 0.2 }}
           className="text-center mt-8 md:mt-10 lg:mt-12"
         >
-          <p className="text-lg md:text-xl font-bold text-[#1d1d1f] mb-1">
-            This is what your day could look like.
+          <p className="text-base md:text-lg text-[#424245] mb-6 max-w-2xl mx-auto">
+            Rabrix runs in the background so you can spend your time meeting buyers, not chasing ghosts.
           </p>
-          <p className="text-sm md:text-base text-[#424245]">
-            Same hours. Different results. Because Rabrix runs in the background.
-          </p>
+          <div className="flex flex-col items-center">
+            <Button
+              href={process.env.NEXT_PUBLIC_CALENDLY_URL || '#'}
+              variant="primary"
+              size="lg"
+              className="text-lg px-10 py-5 shadow-[0_8px_24px_-8px_rgba(6,182,212,0.4)] hover:shadow-[0_12px_32px_-8px_rgba(6,182,212,0.5)] transition-all"
+            >
+              I'm Done Wasting Leads
+            </Button>
+            <p className="text-xs text-[#86868b] mt-2">
+              Book your free calendar audit
+            </p>
+          </div>
         </motion.div>
       </div>
     </section>

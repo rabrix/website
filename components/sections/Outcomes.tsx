@@ -6,19 +6,19 @@ import { motion } from 'framer-motion';
 const outcomes = [
   {
     title: 'More buyer appointments',
-    description: 'Your calendar fills with real conversations, not just more "leads" in a spreadsheet.',
+    description: 'Your calendar fills with real buyer conversations, not just more "leads" in a spreadsheet.',
   },
   {
     title: 'Prepared meetings',
-    description: 'Before each appointment, you see a simple summary of the buyer\'s budget, area, timeline, needs, and challenges.',
+    description: 'Before every appointment you see budget, area, timeline, needs, and challenges in one simple view.',
   },
   {
     title: 'Time back in your day',
-    description: 'Rabrix chases, nurtures, and qualifies your leads so you can spend your time showing homes and closing deals.',
+    description: 'Rabrix does the chasing and nurturing so you can focus on showings and negotiations.',
   },
   {
-    title: 'One clear place to see it all',
-    description: 'Our dashboard shows your appointments and key buyer info in one place, so you\'re never guessing who you\'re talking to.',
+    title: 'One clear dashboard',
+    description: 'All appointments and conversations in one place. No guessing who you\'re talking to.',
   },
 ];
 
@@ -35,7 +35,7 @@ export const Outcomes: React.FC = () => {
         >
           What you actually get with <span className="gradient-premium-alt">Rabrix</span>
         </motion.h2>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 md:grid-cols-2">
           {outcomes.map((outcome, index) => (
             <motion.div
               key={index}

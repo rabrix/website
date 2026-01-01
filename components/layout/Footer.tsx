@@ -11,7 +11,8 @@ export const Footer: React.FC = () => {
       <Container className="flex flex-col items-center justify-center">
         <div className="flex justify-center">
           <Image 
-            src="/logos/20251123_000511.png" 
+            // src="/logos/20251123_000511.png" 
+            src="https://p6l2vyu7e8eitno5.public.blob.vercel-storage.com/Logos/Rabrix-Solo.png"
             alt="Rabrix" 
             width={220} 
             height={220} 
