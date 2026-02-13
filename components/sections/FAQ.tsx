@@ -31,7 +31,7 @@ const faqs: FAQItem[] = [
   },
   {
     question: 'What markets do you work in?',
-    answer: 'We work with real estate agents across North America. On the call, we\'ll confirm if your market is a good fit and walk through the numbers.',
+    answer: 'We work with real estate agents across United States and Canada. On the call, we\'ll confirm if your market is a good fit and walk through the numbers.',
   },
 ];
 
@@ -46,7 +46,7 @@ export const FAQ: React.FC = () => {
     <section id="faq" className="relative bg-white py-16 md:py-20 lg:py-24">
       {/* Subtle divider */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
-      
+
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <motion.h2
@@ -67,7 +67,7 @@ export const FAQ: React.FC = () => {
           >
             Before we get started, here's what you need to know.
           </motion.p>
-          
+
           <div className="space-y-0">
             {faqs.map((faq, index) => (
               <motion.div
